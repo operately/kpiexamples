@@ -1,4 +1,9 @@
 <div>
-  <h1 class="font-bold text-4xl">Pages#home</h1>
-  <p>Find me in app/views/pages/home.html.erb</p>
+  <h1 class="font-bold text-4xl">KPI Examples</h1>
+  <p>Explore <%= Kpi.count %> Key Performance Indicators (KPIs) and metrics</p>
+  <ul>
+    <% Kpi.last(10).each do |kpi| -%>
+      <li><%= link_to(kpi.name, kpi, class: "text-sky-600 underline") %></li>
+    <% end -%>
+  </ul>
 </div>
