@@ -1,9 +1,12 @@
 <div>
   <h1 class="font-bold text-4xl">KPI Examples</h1>
   <p>Explore <%= Kpi.count %> Key Performance Indicators (KPIs) and metrics</p>
-  <ul>
-    <% Kpi.last(10).each do |kpi| -%>
-      <li><%= link_to(kpi.name, category_kpi_path(kpi.category, kpi), class: "text-sky-600 underline") %></li>
-    <% end -%>
-  </ul>
+
+  <div class="mt-2">
+    <ul>
+      <% @categories.each do |c| -%>
+        <li><%= link_to(c.name, category_path(c), class: "text-blue-500 hover:text-blue-700 underline") %></li>
+      <% end -%>
+    </ul>
+  </div>
 </div>

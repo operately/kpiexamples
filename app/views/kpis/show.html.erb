@@ -1,4 +1,27 @@
-<div>
-  <h1 class="font-bold text-4xl"><%= @kpi.name %></h1>
-  <p><%= @kpi.description %></p>
+<div class="flex flex-row items-center space-x-2">
+  <a href="/" class="text-blue-500 hover:text-blue-700 underline">KPI Examples</a>
+  <span class="text-gray-400">></span>
+  <p class="text-gray-600"><%= link_to(@kpi.category.name, @kpi.category, class: "text-blue-500 hover:text-blue-700 underline") %></p>
+</div>
+
+<h1 class="text-4xl font-bold mt-2"><%= @kpi.name %></h1>
+
+<p class="text-lg text-gray-500"><%= @kpi.unit.capitalize %></p>
+
+<div class="text-gray-800">
+  <p class=""><%= @kpi.description %></p>
+
+  <% if @kpi.formula.present? -%>
+    <div class="mt-3">
+      <h2 class="text-xl font-semibold">Formula</h2>
+      <p class="font-mono"><%= @kpi.formula %></p>
+    </div>
+  <% end -%>
+
+  <% if @kpi.example.present? -%>
+    <div class="mt-3">
+      <h2 class="text-xl font-semibold">Example</h2>
+      <p><%= @kpi.example %></p>
+    </div>
+  <% end -%>
 </div>
