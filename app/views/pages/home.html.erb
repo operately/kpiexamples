@@ -3,7 +3,7 @@
   <p>Explore <%= Kpi.count %> Key Performance Indicators (KPIs) and metrics</p>
   <ul>
     <% Kpi.last(10).each do |kpi| -%>
-      <li><%= link_to(kpi.name, kpi, class: "text-sky-600 underline") %></li>
+      <li><%= link_to(kpi.name, category_kpi_path(kpi.category, kpi), class: "text-sky-600 underline") %></li>
     <% end -%>
   </ul>
 </div>

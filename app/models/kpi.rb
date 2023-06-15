@@ -6,6 +6,9 @@ class Kpi < ApplicationRecord
   validates :unit, inclusion: { in: VALID_UNITS, message: "%{value} is not a valid unit" }
   validates :description, presence: true
 
+  extend FriendlyId
+  friendly_id :name, use: :slugged
+
   def self.sync_with_google_sheet
     Rails.logger.info "[KPI sync] start"
 
