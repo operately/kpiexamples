@@ -1,8 +1,12 @@
 <div>
-  <h1 class="font-bold text-4xl">KPI Examples</h1>
-  <p>Explore <%= Kpi.count %> Key Performance Indicators (KPIs) and metrics</p>
+  <h1 class="font-bold text-4xl">Find the right KPIs for your work</h1>
 
-  <div class="mt-2">
+  <p class="mt-4">Use the right metrics to succeed. KPI Examples is an
+    open-source database of business KPIs that empowers you to optimize
+    performance, align goals, and foster a data-driven culture.</p>
+
+  <div class="mt-4">
+    <h2 class="text-xl">Explore categories</h2>
     <ul>
       <% @categories.each do |c| -%>
         <li><%= link_to(c.name, category_path(c), class: "text-blue-500 hover:text-blue-700 underline") %></li>
