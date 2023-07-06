@@ -13,3 +13,26 @@
  *= require_tree .
  *= require_self
  */
+
+/* Adding custom dynamic styles to align the search bar and the results */
+
+:root {
+  --left-app-margin: 160px;
+}
+
+.app-logo-width {
+  width: var(--left-app-margin);
+}
+
+@media only screen and (max-width: 900px) {
+  .app-left-margin {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  .app-left-margin {
+    margin-left: var(--left-app-margin);
+  }
+}
