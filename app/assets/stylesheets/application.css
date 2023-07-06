@@ -14,7 +14,14 @@
  *= require_self
  */
 
-/* Adding custom dynamic styles to align the search bar and the results */
+/* Operately's core brand colors */
+
+.text-operately-blue { color: #3185FF; }
+.text-operately-dark-blue { color: #024FAC; }
+.text-operately-blue-tint-1 { color: #E3F2FF; }
+.text-operately-blue-tint-2 { color: #98C9FF; }
+
+/* Custom dynamic styles to align the search bar and the results */
 
 :root {
   --left-app-margin: 160px;
