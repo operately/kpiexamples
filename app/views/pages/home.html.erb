@@ -9,7 +9,7 @@
     <h2 class="text-xl">Explore categories</h2>
     <ul>
       <% @categories.each do |c| -%>
-        <li><%= link_to(c.name, category_path(c), class: "text-blue-500 hover:text-blue-700 underline") %></li>
+        <li><%= link_to(c.name, category_path(c), class: "text-operately-blue underline") %></li>
       <% end -%>
     </ul>
   </div>

@@ -1,5 +1,5 @@
 <div class="flex flex-row items-center space-x-2">
-  <a href="/" class="text-blue-500 hover:text-blue-700 underline">KPI Examples</a>
+  <a href="/" class="text-operately-blue underline">KPI Examples</a>
   <span class="text-gray-400">></span>
   <p class="text-gray-600">Categories</p>
 </div>
@@ -9,7 +9,7 @@
 <div class="mt-4">
   <ul>
     <% @kpis.each do |kpi| -%>
-      <li><%= link_to(kpi.name, category_kpi_path(kpi.category, kpi), class: "text-blue-500 hover:text-blue-700 underline") %></li>
+      <li><%= link_to(kpi.name, category_kpi_path(kpi.category, kpi), class: "text-operately-blue underline") %></li>
     <% end -%>
   </ul>
 </div>
