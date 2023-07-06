@@ -1,4 +1,4 @@
-PORT ?= 5000
+PORT ?= 4000
 DB_URL = export DATABASE_URL=postgres://postgres:keyboard-cat@localhost:5432 &&
 
 #
