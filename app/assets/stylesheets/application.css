@@ -17,7 +17,7 @@
 /* Adding custom dynamic styles to align the search bar and the results */
 
 :root {
-  --left-app-margin: 180px;
+  --left-app-margin: 160px;
 }
 
 .app-logo-width {
