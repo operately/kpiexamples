@@ -13,6 +13,9 @@ dev.setup: start.db
 dev.server: start.db
 	$(DB_URL) bundle exec rails server --port $(PORT)
 
+dev.console: start.db
+	$(DB_URL) bundle exec rails console
+
 #
 # database utilities
 
