@@ -9,6 +9,7 @@ dev.setup: start.db
 	$(DB_URL) bin/rails db:create
 	$(DB_URL) bin/rails db:migrate
 	$(DB_URL) bin/rails db:seed
+	$(DB_URL) bin/rails tailwindcss:build
 
 dev.server: start.db
 	$(DB_URL) bundle exec rails server --port $(PORT)
