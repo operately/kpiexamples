@@ -17,6 +17,9 @@ dev.server: start.db
 dev.console: start.db
 	$(DB_URL) bundle exec rails console
 
+dev.tailwind.watch:
+	$(DB_URL) bin/rails tailwindcss:watch
+
 #
 # database utilities
 
