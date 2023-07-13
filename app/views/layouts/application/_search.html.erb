@@ -1,11 +1,15 @@
 <div class="relative">
-  <span class="absolute inset-y-0 left-0 pl-3 flex items-center">
-    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-      <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0"></path>
-      <path d="M21 21l-6 -6"></path>
-    </svg>
-  </span>
+  <%= form_with url: search_path, method: :get, local: true, class: 'relative', id: 'search-form', data: { controller: 'search', action: 'input->search#perform' } do %>
+    <span class="absolute inset-y-0 left-0 pl-3 flex items-center">
+      <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+        <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0"></path>
+        <path d="M21 21l-6 -6"></path>
+      </svg>
+    </span>
 
-  <input class="pl-10 pr-4 w-96 rounded-lg border-2 border-gray-200 focus:border-blue-500 focus:outline-none py-2" type="text" placeholder="Search KPIs by name or description">
+    <%= text_field_tag :query, params[:query], placeholder: 'Search KPIs by name or description', class: 'pl-10 pr-4 w-96 rounded-lg border-2 border-gray-200 focus:border-blue-500 focus:outline-none py-2', data: { 'search-target': 'input' } %>
+
+    <div data-search-target="results" class="absolute bg-white rounded-lg shadow mt-2 w-full z-50"></div>
+  <% end %>
 </div>
