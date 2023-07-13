@@ -8,7 +8,7 @@
       </svg>
     </span>
 
-    <%= text_field_tag :query, params[:query], placeholder: 'Search KPIs by name or description', class: 'pl-10 pr-4 w-96 rounded-lg border-2 border-gray-200 focus:border-blue-500 focus:outline-none py-2', data: { 'search-target': 'input' } %>
+    <%= text_field_tag :query, params[:query], placeholder: 'Search KPIs by name or description [ / ]', class: 'pl-10 pr-4 w-96 rounded-lg border-2 border-gray-200 focus:border-blue-500 focus:outline-none py-2', data: { 'search-target': 'input' } %>
 
     <div data-search-target="results" class="absolute bg-white rounded-lg shadow mt-2 w-full z-50"></div>
   <% end %>
