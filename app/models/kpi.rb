@@ -9,6 +9,9 @@ class Kpi < ApplicationRecord
   extend FriendlyId
   friendly_id :name, use: :slugged
 
+  include PgSearch::Model
+  pg_search_scope :search_by_content, against: [:name, :description, :example]
+
   def self.sync_with_google_sheet
     Rails.logger.info "[KPI sync] start"
 
