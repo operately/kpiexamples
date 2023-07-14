@@ -6,6 +6,7 @@
 
 *.swp
 google_drive_config.json
+.DS_Store
 
 # Ignore bundler config.
 /.bundle
