@@ -2,6 +2,7 @@
 Rails.application.routes.draw do
 
   get '/about', to: 'pages#about'
+  get '/contribute', to: 'pages#contribute'
   get '/search', to: 'kpis#search'
 
   resources :categories, path: '/', only: [:show] do

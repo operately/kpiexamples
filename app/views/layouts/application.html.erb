@@ -11,10 +11,10 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body class="font-sans leading-normal tracking-normal min-h-screen relative">
+  <body class="flex flex-col min-h-screen font-sans leading-normal tracking-normal">
     <%= render "layouts/application/header" %>
 
-    <main class="app-left-margin mt-10 px-4 max-w-prose">
+    <main class="app-left-margin mt-10 px-4 max-w-prose flex-grow">
       <%= yield %>
     </main>
   </body>
