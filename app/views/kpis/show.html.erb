@@ -1,3 +1,9 @@
+<% set_page_title("#{@kpi.name} - #{@kpi.category.name} KPI Examples", full: true) -%>
+
+<% content_for :head do -%>
+  <%= meta_description(substring_until_period(@kpi.description)) -%>
+<% end -%>
+
 <div class="flex flex-row items-center space-x-2">
   <p class="text-gray-600"><%= link_to(@kpi.category.name, @kpi.category, class: "text-operately-blue underline") %></p>
 </div>
