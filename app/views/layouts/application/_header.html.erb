@@ -1,25 +1,12 @@
 <header class="bg-white p-4 shadow">
   <div class="flex justify-between items-center">
+
     <div class="flex items-center space-x-4 md:space-x-0">
       <%= render "layouts/application/logo" %>
       <%= render "layouts/application/search" %>
     </div>
 
-    <!-- Menu open button, only visible on small screens -->
-    <div class="md:hidden" data-controller="hamburger">
-      <button class="text-gray-800 focus:outline-none focus:ring" id="menu-button" data-action="click->hamburger#toggle">
-        <!-- Hamburger icon -->
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="h-6 w-6">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-        </svg>
-      </button>
-
-      <div class="hidden w-full block flex-grow md:flex md:items-center md:w-auto" data-hamburger-target="menu">
-        <!-- Menu drawer, initially hidden, will be shown when menu button is clicked -->
-        <a href="/contribute" class="text-gray-800 no-underline block p-4">Contribute</a>
-        <a href="/users/sign_in" class="text-gray-800 no-underline block p-4">Sign In</a>
-      </div>
-    </div>
+    <%= render "layouts/application/hamburger" %>
 
     <div class="hidden md:block">
       <a href="/contribute" class="text-gray-800 no-underline mx-3 pr-2">Contribute</a>

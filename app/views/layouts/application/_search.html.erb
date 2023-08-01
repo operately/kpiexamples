@@ -1,4 +1,4 @@
-<div class="relative w-full md:w-auto">
+<div class="relative w-full md:w-auto md:mr-4 md:pr-4">
   <%= form_with url: search_path, method: :get, local: true, class: 'relative', id: 'search-form', data: { controller: 'search', action: 'input->search#perform' } do %>
     <span class="absolute inset-y-0 left-0 pl-3 flex items-center">
       <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -8,7 +8,7 @@
       </svg>
     </span>
 
-    <%= text_field_tag :query, params[:query], placeholder: 'Search KPIs by name or description [ / ]', class: 'pl-10 pr-4 w-96 rounded-lg border-2 border-gray-200 focus:border-blue-500 focus:outline-none py-2', data: { 'search-target': 'input' } %>
+    <%= text_field_tag :query, params[:query], placeholder: 'Search KPIs by name or description [ / ]', class: 'pl-10 pr-4 w-full md:w-96 rounded-lg border-2 border-gray-200 focus:border-blue-500 focus:outline-none py-2', data: { 'search-target': 'input' } %>
 
     <div data-search-target="results" class="absolute bg-white rounded-lg shadow mt-2 w-full z-50"></div>
   <% end %>
