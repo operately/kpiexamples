@@ -9,7 +9,7 @@
 <div class="mt-4">
   <ul>
     <% @kpis.each do |kpi| -%>
-      <li><%= link_to(kpi.name, category_kpi_path(kpi.category, kpi), class: "text-operately-blue underline") %></li>
+      <li><%= link_to(kpi.name, category_kpi_path(kpi.category, kpi), class: "text-operately-blue hover:text-operately-dark-blue underline") %></li>
     <% end -%>
   </ul>
 </div>

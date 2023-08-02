@@ -5,7 +5,7 @@
 <% end -%>
 
 <div class="flex flex-row items-center space-x-2">
-  <p class="text-gray-600"><%= link_to(@kpi.category.name, @kpi.category, class: "text-operately-blue underline") %></p>
+  <p class="text-gray-600"><%= link_to(@kpi.category.name, @kpi.category, class: "text-operately-blue hover:text-operately-dark-blue underline") %></p>
 </div>
 
 <h1 class="text-4xl font-bold mt-2"><%= @kpi.name %></h1>
@@ -17,14 +17,14 @@
 
   <% if @kpi.formula.present? -%>
     <div class="mt-3">
-      <h2 class="text-xl font-semibold">Formula</h2>
+      <h2 class="text-xl font-semibold mt-4 mb-1">Formula</h2>
       <p class="font-mono"><%= @kpi.formula %></p>
     </div>
   <% end -%>
 
   <% if @kpi.example.present? -%>
     <div class="mt-3">
-      <h2 class="text-xl font-semibold">Example</h2>
+      <h2 class="text-xl font-semibold mt-4 mb-1">Example</h2>
       <p><%= @kpi.example %></p>
     </div>
   <% end -%>

@@ -14,18 +14,6 @@
  *= require_self
  */
 
-/* Operately's core brand colors */
-
-.text-operately-blue { color: #3185FF; }
-.text-operately-dark-blue { color: #024FAC; }
-.text-operately-blue-tint-1 { color: #E3F2FF; }
-.text-operately-blue-tint-2 { color: #98C9FF; }
-
-.bg-operately-blue { background-color: #3185FF; }
-.bg-operately-dark-blue { background-color: #024FAC; }
-.bg-operately-blue-tint-1 { background-color: #E3F2FF; }
-.bg-operately-blue-tint-2 { background-color: #98C9FF; }
-
 /* Custom dynamic styles to align the search bar and the results */
 
 :root {
