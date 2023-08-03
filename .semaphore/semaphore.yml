@@ -1,0 +1,26 @@
+version: v1.0
+name: Test KPI Examples
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu2004
+blocks:
+  - name: Test
+    task:
+      env_vars:
+        - name: DATABASE_URL
+          value: 'postgresql://postgres:@0.0.0.0:5432/kpiexamples_test'
+        - name: RAILS_ENV
+          value: test
+      jobs:
+        - name: Run specs
+          commands:
+            - checkout
+            - bundle config set --local path 'vendor/bundle'
+            - bundle config set --local deployment 'true'
+            - sem-service start postgres 13
+            - cache restore
+            - bundle install
+            - cache store
+            - 'bin/rails db:prepare'
+            - bin/rails spec
