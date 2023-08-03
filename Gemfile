@@ -62,6 +62,8 @@ group :development, :test do
 
   gem 'factory_bot_rails'
   gem 'shoulda-matchers'
+
+  gem 'brakeman' # security scanning
 end
 
 group :development do
