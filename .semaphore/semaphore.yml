@@ -1,5 +1,5 @@
 version: v1.0
-name: Test MyApp
+name: Test KPI Examples
 agent:
   machine:
     type: e1-standard-2
@@ -9,7 +9,7 @@ blocks:
     task:
       env_vars:
         - name: DATABASE_URL
-          value: 'postgresql://postgres:@0.0.0.0:5432/myapp_test'
+          value: 'postgresql://postgres:@0.0.0.0:5432/kpiexamples_test'
         - name: RAILS_ENV
           value: test
       jobs:
