@@ -1,11 +1,11 @@
 version: v1.0
-name: Test KPI Examples
+name: Build and Test
 agent:
   machine:
     type: e1-standard-2
     os_image: ubuntu2004
 blocks:
-  - name: Test
+  - name: Static testing + specs
     task:
       env_vars:
         - name: DATABASE_URL
@@ -22,5 +22,6 @@ blocks:
             - cache restore
             - bundle install
             - cache store
+            - bundle exec brakeman
             - 'bin/rails db:prepare'
             - bin/rails spec
