@@ -13,4 +13,10 @@ module KpisHelper
       ""
     end
   end
+
+  def unit_emoji_tag(unit_type)
+    content_tag(:span, title: unit_type.capitalize, "aria-label": unit_type.capitalize) do
+      emoji_for_unit(unit_type)
+    end
+  end
 end
