@@ -1,24 +1,6 @@
-# README
+# KPI Examples
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[![Build Status](https://operately.semaphoreci.com/badges/kpiexamples/branches/main.svg?key=96a4753d-fe12-4c79-91a4-e95d8e696a6e)](https://operately.semaphoreci.com/projects/kpiexamples)
 
-Things you may want to cover:
+A minimalistic website for an open source database of business KPIs.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
