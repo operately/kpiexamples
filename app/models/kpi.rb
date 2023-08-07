@@ -1,5 +1,5 @@
 class Kpi < ApplicationRecord
-  belongs_to :category
+  belongs_to :subcategory
 
   VALID_UNITS = ['money', 'percentage', 'time', 'number'].freeze
 

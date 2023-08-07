@@ -4,5 +4,6 @@ class Category < ApplicationRecord
   extend FriendlyId
   friendly_id :name, use: :slugged
 
-  has_many :kpis
+  has_many :subcategories, dependent: :destroy
+  has_many :kpis, through: :subcategories
 end
