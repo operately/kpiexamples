@@ -21,7 +21,8 @@ class Kpi < ApplicationRecord
 
     sheet.rows.each do |row|
       category = find_or_create_category(row, categories)
-      update_or_create_kpi(row, category)
+      subcategory = find_or_create_subcategory(row, category)
+      update_or_create_kpi(row, category, subcategory)
     end
 
     Rails.logger.info "[KPI sync] complete"
@@ -39,8 +40,20 @@ class Kpi < ApplicationRecord
     category
   end
 
-  def self.update_or_create_kpi(row, category)
+  def self.find_or_create_subcategory(row, category)
+    subcategory = Subcategory.find_or_initialize_by(name: row[2], category: category)
+
+    if subcategory.new_record?
+      Rails.logger.info "[KPI sync] Creating a new subcategory: #{subcategory.name} in #{category.name}"
+      subcategory.save!
+    end
+
+    subcategory
+  end
+
+  def self.update_or_create_kpi(row, category, subcategory)
     kpi = Kpi.find_or_initialize_by(name: row[0], category: category)
+    kpi.subcategory = subcategory
     kpi.unit = row[3].downcase
     kpi.description = row[4]
     kpi.formula = row[5]
@@ -52,9 +65,9 @@ class Kpi < ApplicationRecord
     elsif kpi.changed?
       Rails.logger.info "[KPI sync] Updating #{kpi.name} in #{kpi.category.name}"
       kpi.save!
-    else
-      Rails.logger.info "[KPI sync] Nothing changed about #{kpi.name} in #{kpi.category.name}"
     end
+
+    kpi
   end
 
 end

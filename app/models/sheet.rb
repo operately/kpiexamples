@@ -5,7 +5,7 @@ class Sheet
 
     @spreadsheet = @session.spreadsheet_by_title("KPIs data model draft")
 
-    @worksheet = @spreadsheet.worksheets.first
+    @worksheet = @spreadsheet.worksheets.third
   end
 
   def rows
