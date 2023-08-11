@@ -5,7 +5,10 @@
 <% end -%>
 
 <div class="flex flex-row items-center space-x-2">
-  <p class="text-gray-600"><%= link_to(@kpi.category.name, @kpi.category, class: "text-operately-blue hover:text-operately-dark-blue underline") %></p>
+  <p class="text-gray-600">
+    <%= link_to(@kpi.category.name, @kpi.category, class: "text-operately-blue hover:text-operately-dark-blue underline") %> /
+    <%= link_to(@kpi.subcategory.name, category_subcategory_path(@kpi.category, @kpi.subcategory), class: "text-operately-blue hover:text-operately-dark-blue underline") %>
+  </p>
 </div>
 
 <h1 class="text-4xl font-bold mt-2"><%= @kpi.name %></h1>
