@@ -5,5 +5,5 @@ class Category < ApplicationRecord
   friendly_id :name, use: :slugged
 
   has_many :subcategories, dependent: :destroy
-  has_many :kpis, through: :subcategories
+  has_many :kpis
 end
