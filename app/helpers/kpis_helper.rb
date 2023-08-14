@@ -9,6 +9,8 @@ module KpisHelper
       "⏱"
     when 'number'
       "#"
+    when 'score'
+      "🏅"
     else
       ""
     end

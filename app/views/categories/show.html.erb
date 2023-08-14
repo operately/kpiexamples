@@ -10,8 +10,8 @@
 
   <div class="grid grid-cols-2 md:grid-cols-4 gap-1 mt-4 mb-4">
     <% @subcategories.each do |sub| -%>
-      <div class="bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 ease-in-out">
-        <%= link_to(sub.name, category_subcategory_path(@category, sub), class: "rounded-lg flex items-center justify-center bg-cover bg-center font-bold text-sm") %>
+      <div class="bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 ease-in-out flex items-center justify-center">
+        <%= link_to(sub.name, category_subcategory_path(@category, sub), class: "rounded-lg bg-cover bg-center font-bold text-sm") %>
       </div>
     <% end -%>
   </div>
@@ -23,4 +23,6 @@
       <p class="text-gray-700 mt-2"><%= substring_until_period(kpi.description) %></p>
     </div>
   <% end -%>
+
+  <%= paginate @kpis %>
 </div>

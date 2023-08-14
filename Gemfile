@@ -51,6 +51,7 @@ gem "bootsnap", require: false
 # Application specific
 gem "friendly_id", "~> 5.5"
 gem "google_drive"
+gem "kaminari"
 gem "pg_search"
 
 group :development, :test do
