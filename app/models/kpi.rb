@@ -28,6 +28,11 @@ class Kpi < ApplicationRecord
     Rails.logger.info "[KPI sync] complete"
   end
 
+  # regenerate the slug when the name changes
+  def should_generate_new_friendly_id?
+    name_changed? || super
+  end
+
   protected
 
   def self.find_or_create_category(row, categories)

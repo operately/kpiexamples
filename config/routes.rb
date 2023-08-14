@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get '/users/sign_in', to: 'pages#sign_in'
 
   resources :categories, path: '/', only: [:show] do
-    resources :subcategories, path: '/subcategories', only: [:show]
+    resources :subcategories, path: '/s', only: [:show]
     resources :kpis, path: '/', only: [:show]
   end
 
