@@ -3,6 +3,6 @@ class SubcategoriesController < ApplicationController
     @category = Category.friendly.find(params[:category_id])
     @subcategory = @category.subcategories.friendly.find(params[:id])
 
-    @kpis = @subcategory.kpis.order("name ASC")
+    @kpis = @subcategory.kpis.order("name ASC").page(params[:page]).per(20)
   end
 end
