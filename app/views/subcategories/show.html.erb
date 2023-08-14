@@ -1,21 +1,18 @@
-<% set_page_title("#{@category.name} KPI Examples", full: true) -%>
+<% set_page_title("#{@subcategory.name} #{@category.name}") -%>
 
 <% content_for :head do -%>
   <%= meta_description("Discover a comprehensive list of #{@category.name} KPIs to measure and improve your performance. Find detailed definitions, formulas, and examples of key #{@category.name} performance indicators to guide your decision-making process.") %>
 <% end -%>
 
-<h1 class="text-4xl font-bold mt-2"><%= @category.name %></h1>
+<div class="flex flex-row items-center space-x-2">
+  <p class="text-gray-600">
+    <%= link_to(@category.name, @category, class: "text-operately-blue hover:text-operately-dark-blue underline") %>
+  </p>
+</div>
+
+<h1 class="text-4xl font-bold mt-2"><%= @subcategory.name %></h1>
 
 <div class="mt-4">
-
-  <div class="grid grid-cols-2 md:grid-cols-4 gap-1 mt-4 mb-4">
-    <% @subcategories.each do |sub| -%>
-      <div class="bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 ease-in-out">
-        <%= link_to(sub.name, category_subcategory_path(@category, sub), class: "rounded-lg flex items-center justify-center bg-cover bg-center font-bold text-sm") %>
-      </div>
-    <% end -%>
-  </div>
-
   <% @kpis.each do |kpi| -%>
     <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 ease-in-out mb-4">
       <%= link_to(kpi.name, category_kpi_path(kpi.category, kpi), class: "text-2xl font-bold text-operately-blue hover:text-operately-dark-blue underline") %>
