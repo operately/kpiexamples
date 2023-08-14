@@ -7,6 +7,15 @@
 <h1 class="text-4xl font-bold mt-2"><%= @category.name %></h1>
 
 <div class="mt-4">
+
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-1 mt-4 mb-4">
+    <% @subcategories.each do |sub| -%>
+      <div class="bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 ease-in-out">
+        <%= link_to(sub.name, category_subcategory_path(@category, sub), class: "rounded-lg flex items-center justify-center bg-cover bg-center font-bold text-sm") %>
+      </div>
+    <% end -%>
+  </div>
+
   <% @kpis.each do |kpi| -%>
     <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 ease-in-out mb-4">
       <%= link_to(kpi.name, category_kpi_path(kpi.category, kpi), class: "text-2xl font-bold text-operately-blue hover:text-operately-dark-blue underline") %>

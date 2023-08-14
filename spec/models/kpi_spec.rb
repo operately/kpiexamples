@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Kpi, type: :model do
-  it { should belong_to(:category) }
+  it { should belong_to(:subcategory) }
 
   describe "unit validation" do
     it "allows valid units" do
