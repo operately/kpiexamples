@@ -11,6 +11,8 @@ module KpisHelper
       "#"
     when 'score'
       "🏅"
+    when 'ratio'
+      "⚖️"
     else
       ""
     end
