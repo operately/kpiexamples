@@ -9,6 +9,6 @@ class Sheet
   end
 
   def rows
-    @rows ||= @worksheet.rows.drop(1)
+    @rows ||= @worksheet.rows.drop(1).reject { |r| r[0].blank? }
   end
 end
