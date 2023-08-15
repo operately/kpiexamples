@@ -1,0 +1,16 @@
+<% if @kpis.any? %>
+  <div class="p-4">
+  <% @kpis.each do |kpi| %>
+    <%= link_to(category_kpi_path(kpi.category, kpi), class: 'result', data: { 'search-target': 'result' }) do %>
+      <div class="border-b border-gray-200 py-2 cursor-pointer hover:bg-gray-100">
+        <span class="text-blue-600 hover:text-blue-800 transition duration-200"><%= kpi.name %></span>
+        <p class="text-sm">
+          <%= truncate(kpi.description, length: 180) %>
+        </p>
+      </div>
+    <% end %>
+  <% end %>
+  </div>
+<% else %>
+  <p class="text-gray-600">No KPIs found.</p>
+<% end %>

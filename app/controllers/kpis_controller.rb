@@ -5,7 +5,15 @@ class KpisController < ApplicationController
   end
 
   def search
-    @kpis = Kpi.search_by_content(params[:query])
-    render layout: false
+    @query = params[:query]
+    scope = Kpi.search_by_content(@query)
+    @kpis = scope.page(params[:page]).per(20)
+
+    if params[:autocomplete]
+      render partial: "search_autocomplete", layout: false
+    else
+      @total_count = scope.count
+      # render template
+    end
   end
 end
