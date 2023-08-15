@@ -1,7 +1,7 @@
-<% set_page_title("#{@subcategory.name} in #{@category.name}") -%>
+<% set_page_title("#{@total_count} #{@subcategory.name} in #{@category.name}") -%>
 
 <% content_for :head do -%>
-  <%= meta_description("Dive deeper into #{@category.name} KPIs by exploring #{@subcategory.name}.") %>
+  <%= meta_description("Dive deeper into #{@total_count} #{@category.name} KPIs by exploring #{@subcategory.name}.") %>
 <% end -%>
 
 <div class="flex flex-row items-center space-x-2">
@@ -10,7 +10,7 @@
   </p>
 </div>
 
-<h1 class="text-4xl font-bold mt-2"><%= @subcategory.name %></h1>
+<h1 class="text-4xl font-bold mt-2"><%= @total_count %> <%= @subcategory.name %> KPIs</h1>
 
 <div class="mt-4">
   <% @kpis.each do |kpi| -%>
