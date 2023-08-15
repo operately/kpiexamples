@@ -21,7 +21,7 @@ export default class extends Controller {
   }
 
   perform(event) {
-    const url = `/search?query=${this.inputTarget.value}`
+    const url = `/search?autocomplete=true&query=${this.inputTarget.value}`
 
     fetch(url)
       .then(response => response.text())

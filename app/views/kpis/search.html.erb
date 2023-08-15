@@ -1,16 +1,19 @@
-<% if @kpis.any? %>
-  <div class="p-4">
-  <% @kpis.each do |kpi| %>
-    <%= link_to(category_kpi_path(kpi.category, kpi), class: 'result', data: { 'search-target': 'result' }) do %>
-      <div class="border-b border-gray-200 py-2 cursor-pointer hover:bg-gray-100">
-        <span class="text-blue-600 hover:text-blue-800 transition duration-200"><%= kpi.name %></span>
-        <p class="text-sm">
-          <%= truncate(kpi.description, length: 180) %>
-        </p>
+<% set_page_title("#{@total_count} results for '#{@query}'") -%>
+
+<h1 class="text-4xl font-bold mt-2"><%= @total_count %> search results for '<%= @query %>'</h1>
+
+<div class="mt-4">
+
+  <% @kpis.each do |kpi| -%>
+    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 ease-in-out mb-4">
+      <div class="mb-2">
+        <span><%= link_to(kpi.category.name, kpi.category, class: "text-operately-blue hover:text-operately-dark-blue") %></span>
       </div>
-    <% end %>
-  <% end %>
-  </div>
-<% else %>
-  <p class="text-gray-600">No KPIs found.</p>
-<% end %>
+      <%= link_to(kpi.name, category_kpi_path(kpi.category, kpi), class: "text-2xl font-bold text-operately-blue hover:text-operately-dark-blue underline") %>
+      <%= unit_emoji_tag(kpi.unit) %>
+      <p class="text-gray-700 mt-2"><%= substring_until_period(kpi.description) %></p>
+    </div>
+  <% end -%>
+
+  <%= paginate @kpis %>
+</div>
