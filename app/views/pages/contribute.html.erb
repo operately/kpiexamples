@@ -1,7 +1,14 @@
 <% set_page_title("Contribute") -%>
 
 <% content_for :head do -%>
-  <%= meta_description("Contribute to our open-source KPI database. Help us grow our resource by adding new KPIs, improving existing ones, or sharing your insights. Join the KPI Examples community today.") %>
+  <%= meta_description("Contribute to the open-source KPI database. Help by adding new KPIs, improving existing ones, or sharing your insights.") %>
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@operately">
+  <meta name="twitter:title" content="About KPI Examples">
+  <meta name="og:description" content="<%= "Contribute to the open-source KPI database. Help by adding new KPIs, improving existing ones, or sharing your insights." %>">
+  <meta name="twitter:image" content="<%= image_url("summary-card.jpg") %>">
+  <meta name="og:image" content="<%= image_url("summary-card.jpg") %>">
 <% end -%>
 
 <h1 class="text-3xl font-bold mt-2">Contribute to KPI Examples</h1>
@@ -17,15 +24,15 @@
 
   <h3 class="mt-6 mb-2 text-xl underline decoration-dotted">1.1 Provide feedback on existing KPIs</h3>
 
-  <p class="mb-4">If you've got suggestions on how to improve the descriptions, examples, or any other aspects of our existing KPIs, we'd love to hear from you. You can submit your feedback directly on our public Google Sheet (link pending).</p>
+  <p class="mb-4">If you've got suggestions on how to improve the descriptions, examples, or any other aspects of our existing KPIs, we'd love to hear from you. You can submit your feedback directly on our <a href="https://docs.google.com/spreadsheets/d/17rw8FVoOh9jKP6HGZARI5ba7EXTp-x3xBbWcOtoW0vs" class="text-operately-blue hover:text-operately-dark-blue underline">public Google Sheet</a>.</p>
 
   <h3 class="underline decoration-dotted mt-6 mb-2">1.2 Propose New KPIs</h3>
-  <p class="mb-4">Do you have an idea for a KPI that isn't already included in our database? We're always looking to expand our scope. Submit your proposals on our public Google Sheet (link pending) and help us grow this resource.</p>
+  <p class="mb-4">Do you have an idea for a KPI that isn't already included in our database? We're always looking to expand our scope. Submit your proposals on our <a href="https://docs.google.com/spreadsheets/d/17rw8FVoOh9jKP6HGZARI5ba7EXTp-x3xBbWcOtoW0vs" class="text-operately-blue hover:text-operately-dark-blue underline">Google Sheet</a> and help us grow this resource.</p>
 
-  <p class="mb-4">For both of these actions, please follow the instructions listed in the Google Sheet (link pending).</p>
+  <p class="mb-4">For both of these actions, please follow the instructions listed in the <a href="https://docs.google.com/spreadsheets/d/17rw8FVoOh9jKP6HGZARI5ba7EXTp-x3xBbWcOtoW0vs" class="text-operately-blue hover:text-operately-dark-blue underline">Google Sheet</a>.</p>
 
   <h2 class="text-2xl font-semibold mt-8 mb-2">2. Contribute to this website</h2>
-  <p class="mb-4">If you have suggestions for improvements or have noticed any issues on this website, we welcome your input. You can contribute by submitting an issue on our public <a href="https://github.com/operately/kpiexamples" class="text-operately-blue hover:text-operately-dark-blue underline">Github repository</a>.</p>
+  <p class="mb-4">If you have suggestions for improvements or have noticed any issues on this website, we welcome your input. You can contribute by submitting an issue on our public <a href="https://github.com/operately/kpiexamples" class="text-operately-blue hover:text-operately-dark-blue underline">GitHub repository</a>.</p>
 
   <p class="mb-4">No matter how big or small, your contributions make a difference. Thank you!</p>
 

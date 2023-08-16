@@ -1,7 +1,14 @@
 <% set_page_title("About") -%>
 
 <% content_for :head do -%>
-  <%= meta_description("Learn about KPI Examples, an open-source project dedicated to providing a clear, useful database of business KPIs and metrics.") %>
+  <%= meta_description("Learn about KPI Examples, an open-source project dedicated to providing a comprehensive database of business KPIs and metrics.") %>
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@operately">
+  <meta name="twitter:title" content="About KPI Examples">
+  <meta name="og:description" content="<%= "Learn about KPI Examples, an open-source project dedicated to providing a comprehensive database of business KPIs and metrics." %>">
+  <meta name="twitter:image" content="<%= image_url("summary-card.jpg") %>">
+  <meta name="og:image" content="<%= image_url("summary-card.jpg") %>">
 <% end -%>
 
 <h1 class="text-3xl font-bold mt-2">About</h1>
@@ -11,7 +18,7 @@
 
   <p class="mb-4">Here at <a href="https://operately.com" class="text-operately-blue hover:text-operately-dark-blue underline">Operately</a>, we just wanted something simple and genuinely helpful. So, we rolled up our sleeves and built this clutter-free website.</p>
 
-  <p class="mb-4">We want this information to be around for a long time. That's why this website is <a href="https://github.com/operately/kpiexamples" class="text-operately-blue hover:text-operately-dark-blue underline">open-source</a>, and the KPI database itself is a public Google Sheet (link pending), welcoming anyone who wants to <a href="/contribute" class="text-operately-blue hover:text-operately-dark-blue underline">contribute</a>.</p>
+  <p class="mb-4">We want this information to be around for a long time. That's why this website is <a href="https://github.com/operately/kpiexamples" class="text-operately-blue hover:text-operately-dark-blue underline">open-source</a>, and the KPI database itself is a <a href="https://docs.google.com/spreadsheets/d/17rw8FVoOh9jKP6HGZARI5ba7EXTp-x3xBbWcOtoW0vs" class="text-operately-blue hover:text-operately-dark-blue underline">public Google Sheet</a>, welcoming anyone who wants to <a href="/contribute" class="text-operately-blue hover:text-operately-dark-blue underline">contribute</a>.</p>
 
   <h2 class="text-2xl font-semibold mt-8 mb-2">Get in touch</h2>
 

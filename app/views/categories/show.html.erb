@@ -1,7 +1,15 @@
-<% set_page_title("#{@total_count} #{@category.name} KPI Examples", full: true) -%>
+<% title = "#{@total_count} #{@category.name} KPI Examples" -%>
+<% set_page_title(title, full: true) -%>
 
 <% content_for :head do -%>
-  <%= meta_description("Discover a comprehensive list of #{@total_count} #{@category.name} KPIs to measure and improve your performance. Find detailed definitions, formulas, and examples of key #{@category.name} performance indicators to guide your decision-making process.") %>
+  <%= meta_description("Explore a comprehensive list of #{@total_count} #{@category.name} KPIs to measure and improve your performance. Find detailed definitions, formulas, and examples of key #{@category.name} performance indicators to guide your decision-making process.") %>
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@operately">
+  <meta name="twitter:title" content="<%= title %>">
+  <meta name="og:description" content="<%= "Explore #{@category.name} KPIs to measure and improve your performance." %>">
+  <meta name="twitter:image" content="<%= image_url("summary-card.jpg") %>">
+  <meta name="og:image" content="<%= image_url("summary-card.jpg") %>">
 <% end -%>
 
 <h1 class="text-4xl font-bold mt-2"><%= @total_count %> <%= @category.name %> KPIs</h1>
