@@ -1,7 +1,14 @@
 <% set_page_title("About") -%>
 
 <% content_for :head do -%>
-  <%= meta_description("Learn about KPI Examples, an open-source project dedicated to providing a clear, useful database of business KPIs and metrics.") %>
+  <%= meta_description("Learn about KPI Examples, an open-source project dedicated to providing a comprehensive database of business KPIs and metrics.") %>
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@operately">
+  <meta name="twitter:title" content="About KPI Examples">
+  <meta name="og:description" content="<%= "Learn about KPI Examples, an open-source project dedicated to providing a comprehensive database of business KPIs and metrics." %>">
+  <meta name="twitter:image" content="<%= image_url("summary-card.jpg") %>">
+  <meta name="og:image" content="<%= image_url("summary-card.jpg") %>">
 <% end -%>
 
 <h1 class="text-3xl font-bold mt-2">About</h1>

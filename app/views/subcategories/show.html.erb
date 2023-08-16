@@ -1,7 +1,15 @@
-<% set_page_title("#{@total_count} #{@subcategory.name} in #{@category.name}") -%>
+<% title = "#{@total_count} #{@subcategory.name} KPIs in #{@category.name}" -%>
+<% set_page_title(title) -%>
 
 <% content_for :head do -%>
-  <%= meta_description("Dive deeper into #{@total_count} #{@category.name} KPIs by exploring #{@subcategory.name}.") %>
+  <%= meta_description("Dive deeper into #{@category.name} KPIs by exploring #{@total_count} #{@subcategory.name}.") %>
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@operately">
+  <meta name="twitter:title" content="<%= title %>">
+  <meta name="og:description" content="<%= "Dive deep into #{@category.name} KPI examples." %>">
+  <meta name="twitter:image" content="<%= image_url("summary-card.jpg") %>">
+  <meta name="og:image" content="<%= image_url("summary-card.jpg") %>">
 <% end -%>
 
 <div class="flex flex-row items-center space-x-2">

@@ -1,7 +1,14 @@
 <% set_page_title("Contribute") -%>
 
 <% content_for :head do -%>
-  <%= meta_description("Contribute to our open-source KPI database. Help us grow our resource by adding new KPIs, improving existing ones, or sharing your insights. Join the KPI Examples community today.") %>
+  <%= meta_description("Contribute to the open-source KPI database. Help by adding new KPIs, improving existing ones, or sharing your insights.") %>
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@operately">
+  <meta name="twitter:title" content="About KPI Examples">
+  <meta name="og:description" content="<%= "Contribute to the open-source KPI database. Help by adding new KPIs, improving existing ones, or sharing your insights." %>">
+  <meta name="twitter:image" content="<%= image_url("summary-card.jpg") %>">
+  <meta name="og:image" content="<%= image_url("summary-card.jpg") %>">
 <% end -%>
 
 <h1 class="text-3xl font-bold mt-2">Contribute to KPI Examples</h1>
