@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get '/contribute', to: 'pages#contribute'
   get '/search', to: 'kpis#search'
   get '/users/sign_in', to: 'pages#sign_in'
+  get '/sitemap', to: 'pages#sitemap', defaults: { format: 'xml' }
 
   resources :categories, path: '/', only: [:show] do
     resources :subcategories, path: '/s', only: [:show]
