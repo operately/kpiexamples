@@ -4,7 +4,7 @@ class PagesController < ApplicationController
   end
 
   def sitemap
-    @host = request.host_with_port
+    @host = request.protocol + request.host_with_port
 
     @categories = Category.all.order("name ASC")
     @kpis = Kpi.all.order("name ASC")
