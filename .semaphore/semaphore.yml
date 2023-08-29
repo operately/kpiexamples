@@ -24,4 +24,5 @@ blocks:
             - cache store
             - bundle exec brakeman
             - 'bin/rails db:prepare'
+            - bin/rails assets:precompile
             - bin/rails spec
