@@ -61,6 +61,8 @@ group :development, :test do
   # https://github.com/rspec/rspec-rails/tree/6-0-maintenance
   gem 'rspec-rails', '~> 6.0.0'
 
+  gem 'faker'
+
   gem 'factory_bot_rails'
   gem 'shoulda-matchers'
 
