@@ -1,36 +1,43 @@
-<% title = "#{@total_count} #{@category.name} KPI Examples" -%>
+<% title = "#{@total_count if @total_count > 0} #{@category.name} KPI Examples" -%>
 <% set_page_title(title, full: true) -%>
 
-<% content_for :head do -%>
-  <%= meta_description("Explore a comprehensive list of #{@total_count} #{@category.name} KPIs to measure and improve your performance. Find detailed definitions, formulas, and examples of key #{@category.name} performance indicators to guide your decision-making process.") %>
+<% if @total_count > 0 -%>
+  <% content_for :head do -%>
+    <%= meta_description("Explore a comprehensive list of #{@total_count} #{@category.name} KPIs to measure and improve your performance. Find detailed definitions, formulas, and examples of key #{@category.name} performance indicators to guide your decision-making process.") %>
 
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:site" content="@operately">
-  <meta name="twitter:title" content="<%= title %>">
-  <meta name="og:description" content="<%= "Explore #{@category.name} KPIs to measure and improve your performance." %>">
-  <meta name="twitter:image" content="<%= image_url("summary-card.jpg") %>">
-  <meta name="og:image" content="<%= image_url("summary-card.jpg") %>">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@operately">
+    <meta name="twitter:title" content="<%= title %>">
+    <meta name="og:description" content="<%= "Explore #{@category.name} KPIs to measure and improve your performance." %>">
+    <meta name="twitter:image" content="<%= image_url("summary-card.jpg") %>">
+    <meta name="og:image" content="<%= image_url("summary-card.jpg") %>">
+  <% end -%>
 <% end -%>
 
-<h1 class="text-4xl font-bold mt-2"><%= @total_count %> <%= @category.name %> KPIs</h1>
+
+<h1 class="text-4xl font-bold mt-2"><%= @total_count if @total_count > 0 %> <%= @category.name %> KPIs</h1>
 
 <div class="mt-4">
 
+  <%= render "categories/show/notification" if @total_count == 0 %>
+
   <div class="grid grid-cols-2 md:grid-cols-4 gap-1 mt-4 mb-4">
-    <% @subcategories.each do |sub| -%>
+    <% @subcategories.try(:each) do |sub| -%>
       <div class="bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 ease-in-out flex items-center justify-center">
         <%= link_to(sub.name, category_subcategory_path(@category, sub), class: "rounded-lg bg-cover bg-center font-bold text-sm") %>
       </div>
     <% end -%>
   </div>
 
-  <% @kpis.each do |kpi| -%>
-    <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 ease-in-out mb-4">
-      <%= link_to(kpi.name, category_kpi_path(kpi.category, kpi), class: "text-2xl font-bold text-operately-blue hover:text-operately-dark-blue underline") %>
-      <%= unit_emoji_tag(kpi.unit) %>
-      <p class="text-gray-700 mt-2"><%= substring_until_period(kpi.description) %></p>
-    </div>
-  <% end -%>
+  <% if @kpis.present? -%>
+    <% @kpis.each do |kpi| -%>
+      <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 ease-in-out mb-4">
+        <%= link_to(kpi.name, category_kpi_path(kpi.category, kpi), class: "text-2xl font-bold text-operately-blue hover:text-operately-dark-blue underline") %>
+        <%= unit_emoji_tag(kpi.unit) %>
+        <p class="text-gray-700 mt-2"><%= substring_until_period(kpi.description) %></p>
+      </div>
+    <% end -%>
 
-  <%= paginate @kpis %>
+    <%= paginate @kpis %>
+  <% end -%>
 </div>

@@ -12,5 +12,7 @@ Rails.application.routes.draw do
     resources :kpis, path: '/', only: [:show]
   end
 
+  resources :notifications, only: [:create]
+
   root 'pages#home'
 end
