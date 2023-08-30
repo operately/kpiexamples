@@ -2,6 +2,7 @@ class KpisController < ApplicationController
   def show
     @category = Category.friendly.find(params[:category_id])
     @kpi = @category.kpis.friendly.find(params[:id])
+    @other_kpis = @kpi.subcategory.kpis.where("id != ?", @kpi.id).order("RANDOM()").limit(5)
   end
 
   def search
