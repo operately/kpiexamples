@@ -4,6 +4,7 @@ class NotificationsController < ApplicationController
     @notification = Notification.new(notification_params)
 
     if @notification.save
+      NotificationMailer.category_confirmation_email(@notification).deliver_later
       redirect_to category_path(@notification.category),
         notice: 'Thank you for your interest! You will be notified when KPIs are added to this category.'
     else
