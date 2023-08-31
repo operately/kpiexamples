@@ -1,5 +1,5 @@
 class NotificationMailer < ApplicationMailer
-  default from: 'Operately <notifications@operately.com>',
+  default from: 'KPI Examples by Operately <notifications@kpiexamples.operately.com>',
     to: 'hello@operately.com'
 
   def category_confirmation_email(notification)
