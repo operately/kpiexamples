@@ -16,7 +16,7 @@ class Kpi < ApplicationRecord
   def self.sync_with_google_sheet
     Rails.logger.info "[KPI sync] start"
 
-    sheet = Sheet.new
+    sheet = Sheet.new(Sheet::ROW_KPIS)
     categories = Category.all.to_a
 
     sheet.rows.each do |row|
