@@ -78,4 +78,8 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+
+  # Ruby language server for code editors
+  gem "solargraph"
+  gem "solargraph-rails"
 end
