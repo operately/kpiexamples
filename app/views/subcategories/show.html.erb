@@ -13,9 +13,15 @@
 <% end -%>
 
 <div class="flex flex-row items-center space-x-2">
-  <p class="text-gray-600">
-    <%= link_to(@category.name, @category, class: "text-operately-blue hover:text-operately-dark-blue underline") %>
-  </p>
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+    <li itemprop="itemListElement" itemscope
+        itemtype="https://schema.org/ListItem">
+      <%= link_to(category_url(@category), class: "text-operately-blue hover:text-operately-dark-blue underline", itemprop: "item") do %>
+        <span itemprop="name"><%= @category.name %></span></a>
+    <% end %>
+    <meta itemprop="position" content="1" />
+    </li>
+  </ol>
 </div>
 
 <h1 class="text-4xl font-bold mt-2"><%= @total_count %> <%= @subcategory.name %> KPIs</h1>

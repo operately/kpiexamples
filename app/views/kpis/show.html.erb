@@ -13,10 +13,23 @@
 <% end -%>
 
 <div class="flex flex-row items-center space-x-2">
-  <p class="text-gray-600">
-    <%= link_to(@kpi.category.name, @kpi.category, class: "text-operately-blue hover:text-operately-dark-blue underline") %> /
-    <%= link_to(@kpi.subcategory.name, category_subcategory_path(@kpi.category, @kpi.subcategory), class: "text-operately-blue hover:text-operately-dark-blue underline") %>
-  </p>
+  <ol itemscope itemtype="https://schema.org/BreadcrumbList" class="flex flex-wrap">
+    <li itemprop="itemListElement" itemscope
+        itemtype="https://schema.org/ListItem" class="mr-2">
+      <%= link_to(category_url(@kpi.category), class: "text-operately-blue hover:text-operately-dark-blue underline", itemprop: "item") do %>
+        <span itemprop="name"><%= @kpi.category.name %></span></a>
+    <% end %>
+    <meta itemprop="position" content="1" />
+    </li>
+    ›
+    <li itemprop="itemListElement" itemscope
+        itemtype="https://schema.org/ListItem" class="ml-2">
+      <%= link_to(category_subcategory_url(@kpi.category, @kpi.subcategory), class: "text-operately-blue hover:text-operately-dark-blue underline", itemprop: "item") do %>
+        <span itemprop="name"><%= @kpi.subcategory.name %></span></a>
+    <% end %>
+    <meta itemprop="position" content="2" />
+    </li>
+  </ol>
 </div>
 
 <h1 class="text-4xl font-bold mt-2"><%= @kpi.name %></h1>
