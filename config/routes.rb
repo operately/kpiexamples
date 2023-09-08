@@ -11,6 +11,11 @@ Rails.application.routes.draw do
   get '/auth/failure', to: 'sessions#failure'
   get '/sign_out', to: 'sessions#destroy', as: 'sign_out'
 
+  namespace :admin do
+    resources :notifications, only: [:index]
+    root to: 'dashboard#index'
+  end
+
   resources :categories, path: '/', only: [:show] do
     resources :subcategories, path: '/s', only: [:show]
     resources :kpis, path: '/', only: [:show]
