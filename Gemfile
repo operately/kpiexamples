@@ -52,6 +52,8 @@ gem "bootsnap", require: false
 gem "friendly_id", "~> 5.5"
 gem "google_drive"
 gem "kaminari"
+gem "omniauth"
+gem "omniauth-google-oauth2"
 gem "pg_search"
 
 group :development, :test do
@@ -67,6 +69,8 @@ group :development, :test do
   gem 'shoulda-matchers'
 
   gem 'brakeman' # security scanning
+
+  gem 'dotenv-rails'
 end
 
 group :development do
