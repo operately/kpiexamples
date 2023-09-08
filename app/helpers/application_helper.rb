@@ -16,4 +16,13 @@ module ApplicationHelper
   def meta_description(content)
     "<meta name=\"description\" content=\"#{content}\">".html_safe
   end
+
+  def abbreviated_name(full_name)
+    parts = full_name.split
+    return full_name if parts.length == 1
+
+    first_name = parts.first
+    initials = parts[1..-1].map { |name| "#{name[0]}." }.join
+    "#{first_name} #{initials}"
+  end
 end

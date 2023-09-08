@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_04_112843) do
+ActiveRecord::Schema[7.0].define(version: 2023_09_08_084224) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -55,6 +55,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_04_112843) do
     t.string "slug"
     t.index ["category_id"], name: "index_subcategories_on_category_id"
     t.index ["slug", "category_id"], name: "index_subcategories_on_slug_and_category_id", unique: true
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "email"
+    t.string "name"
+    t.string "provider"
+    t.string "uid"
+    t.string "avatar_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   add_foreign_key "kpis", "categories"

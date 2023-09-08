@@ -9,8 +9,20 @@
     <%= render "layouts/application/hamburger" %>
 
     <div class="hidden md:block">
-      <a href="/contribute" class="text-gray-800 no-underline mx-3 pr-2">Contribute</a>
-      <a href="/about" class="text-gray-800 no-underline">About</a>
+      <div class="flex items-center flex-no-wrap">
+        <a href="/contribute" class="text-gray-800 no-underline mx-3 pr-2">Contribute</a>
+        <a href="/about" class="text-gray-800 no-underline pr-2">About</a>
+        <% unless current_user %>
+          <%= link_to "/auth/google_oauth2", class: "google-signin-btn block w-52 h-12 ml-4" do %>
+            <%= image_tag("google-normal.png", alt: "Sign in with Google", class: "w-full h-full") %>
+          <% end %>
+
+        <% else %>
+          <img src="<%= current_user.avatar_url %>" alt="User Avatar" class="h-8 w-8 rounded-full ml-8 mr-2">
+          <%= abbreviated_name(current_user.name) %>
+          <%= link_to("Sign out", sign_out_path, class: "ml-4") %>
+        <% end %>
+      </div>
     </div>
   </div>
 </header>

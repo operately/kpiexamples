@@ -7,6 +7,10 @@ Rails.application.routes.draw do
   get '/users/sign_in', to: 'pages#sign_in'
   get '/sitemap', to: 'pages#sitemap', defaults: { format: 'xml' }
 
+  get '/auth/:provider/callback', to: 'sessions#create'
+  get '/auth/failure', to: 'sessions#failure'
+  get '/sign_out', to: 'sessions#destroy', as: 'sign_out'
+
   resources :categories, path: '/', only: [:show] do
     resources :subcategories, path: '/s', only: [:show]
     resources :kpis, path: '/', only: [:show]
