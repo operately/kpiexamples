@@ -13,4 +13,8 @@ class PagesController < ApplicationController
       format.xml
     end
   end
+
+  def sign_in
+    session[:return_path] = params[:return_path] if params[:return_path].present?
+  end
 end

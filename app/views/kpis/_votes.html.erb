@@ -1,20 +1,18 @@
 <div class="mt-4 text-base">
-  <% if logged_in? %>
-    <% if current_user.upvoted_kpis.include?(@kpi) %>
-      <%= button_to(downvote_category_kpi_path(@kpi.category, @kpi, dom_id: dom_id(@kpi, :votes)),
-                    method: :delete,
-                    class: "border-2 border-gray-300 text-gray-600 px-4 py-2 rounded hover:bg-operately-blue-tint-1 hover:text-gray-900 transition duration-300") do %>
-        <span>👍 Upvoted</span>
-        <%= kpi_upvote_count(@kpi) %>
-      <% end %>
-    <% else %>
-      <%= button_to(upvote_category_kpi_path(@kpi.category, @kpi, dom_id: dom_id(@kpi, :votes)),
-                    data: { turbo_method: "post" },
-                    class: "bg-operately-blue text-white px-4 py-2 rounded hover:bg-operately-dark-blue transition duration-300") do %>
+  <% if current_user.upvoted_kpis.include?(@kpi) %>
+    <%= button_to(downvote_category_kpi_path(@kpi.category, @kpi, dom_id: dom_id(@kpi, :votes)),
+                  method: :delete,
+                  class: "border-2 border-gray-300 text-gray-600 px-4 py-2 rounded hover:bg-operately-blue-tint-1 hover:text-gray-900 transition duration-300") do %>
+      <span>👍 Upvoted</span>
+      <%= kpi_upvote_count(@kpi) %>
+    <% end %>
+  <% else %>
+    <%= button_to(upvote_category_kpi_path(@kpi.category, @kpi, dom_id: dom_id(@kpi, :votes)),
+                  data: { turbo_method: "post" },
+                  class: "bg-operately-blue text-white px-4 py-2 rounded hover:bg-operately-dark-blue transition duration-300") do %>
 
-        <span>👍 Upvote</span>
-        <%= kpi_upvote_count(@kpi) %>
-      <% end %>
+      <span>👍 Upvote</span>
+      <%= kpi_upvote_count(@kpi) %>
     <% end %>
   <% end %>
 </div>
