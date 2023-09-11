@@ -21,14 +21,16 @@ class KpisController < ApplicationController
   end
 
   def upvote
-    current_user.upvoted_kpis << @kpi unless current_user.upvoted_kpis.include?(@kpi)
+    @kpi.upvote_by!(current_user)
+
     dom_id = params[:dom_id]
 
     respond_to_voting_turbo_stream
   end
 
   def downvote
-    current_user.upvoted_kpis.delete(@kpi)
+    @kpi.downvote_by!(current_user)
+
     dom_id = params[:dom_id]
 
     respond_to_voting_turbo_stream

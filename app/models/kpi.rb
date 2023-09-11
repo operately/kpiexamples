@@ -36,6 +36,20 @@ class Kpi < ApplicationRecord
     name_changed? || super
   end
 
+  def upvote_by!(user)
+    Kpi.transaction do
+      KpiUpvote.create!(kpi: self, user: user) unless user.upvoted_kpis.include?(self)
+      increment!(:upvote_count)
+    end
+  end
+
+  def downvote_by!(user)
+    Kpi.transaction do
+      user.upvoted_kpis.delete(self)
+      decrement!(:upvote_count)
+    end
+  end
+
   protected
 
   def self.find_or_create_category(row, categories)

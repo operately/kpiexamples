@@ -102,3 +102,8 @@ Capybara.server = :puma
 
 Capybara.javascript_driver = :selenium
 Capybara.default_max_wait_time = 4
+
+
+def login_with_oauth(service = :google_oauth2)
+  get "/auth/#{service}/callback"
+end
