@@ -1,7 +1,9 @@
 class KpisController < ApplicationController
+
+  before_action :find_category_and_kpi, except: [:search]
+  before_action :require_login, only: [:upvote, :downvote]
+
   def show
-    @category = Category.friendly.find(params[:category_id])
-    @kpi = @category.kpis.friendly.find(params[:id])
     @other_kpis = @kpi.subcategory.kpis.where("id != ?", @kpi.id).order("RANDOM()").limit(5)
   end
 
@@ -15,6 +17,35 @@ class KpisController < ApplicationController
     else
       @total_count = scope.count
       # render template
+    end
+  end
+
+  def upvote
+    current_user.upvoted_kpis << @kpi unless current_user.upvoted_kpis.include?(@kpi)
+    dom_id = params[:dom_id]
+
+    respond_to_voting_turbo_stream
+  end
+
+  def downvote
+    current_user.upvoted_kpis.delete(@kpi)
+    dom_id = params[:dom_id]
+
+    respond_to_voting_turbo_stream
+  end
+
+  protected
+
+  def find_category_and_kpi
+    @category = Category.friendly.find(params[:category_id])
+    @kpi = @category.kpis.friendly.find(params[:id])
+  end
+
+  def respond_to_voting_turbo_stream
+    respond_to do |format|
+      format.turbo_stream do
+        render turbo_stream: turbo_stream.update(params[:dom_id], partial: 'kpis/votes')
+      end
     end
   end
 end

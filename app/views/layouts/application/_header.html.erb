@@ -13,7 +13,7 @@
         <a href="/contribute" class="text-gray-800 no-underline mx-3 pr-2">Contribute</a>
         <a href="/about" class="text-gray-800 no-underline pr-2">About</a>
         <% unless current_user %>
-          <%= link_to "/auth/google_oauth2", class: "google-signin-btn block w-52 h-12 ml-4" do %>
+          <%= link_to("/auth/google_oauth2", class: "google-signin-btn block w-52 h-12 ml-4", data: { testid: "google-signin-btn" }) do %>
             <%= image_tag("google-normal.png", alt: "Sign in with Google", class: "w-full h-full") %>
           <% end %>
 

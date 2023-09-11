@@ -18,7 +18,13 @@ Rails.application.routes.draw do
 
   resources :categories, path: '/', only: [:show] do
     resources :subcategories, path: '/s', only: [:show]
-    resources :kpis, path: '/', only: [:show]
+    resources :kpis, path: '/', only: [:show] do
+      member do
+        get    :votes
+        post   :upvote
+        delete :downvote
+      end
+    end
   end
 
   resources :notifications, only: [:create]
