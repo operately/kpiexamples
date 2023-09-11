@@ -2,7 +2,15 @@ class SessionsController < ApplicationController
   def create
     user = User.from_omniauth(request.env["omniauth.auth"])
     session[:user_id] = user.id
-    redirect_to root_path, notice: 'Successfully signed in!'
+
+    if session[:return_path].present?
+      path = session[:return_path]
+      session.delete(:return_path)
+    else
+      path = root_path
+    end
+
+    redirect_to path, notice: 'Successfully signed in!'
   end
 
   def destroy

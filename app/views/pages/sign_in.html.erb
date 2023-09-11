@@ -1,7 +1,14 @@
 <% set_page_title("Sign In") -%>
 
-<h1 class="text-4xl font-bold mt-2">Sign in</h1>
+<h1 class="text-4xl font-bold mt-2">Create Free Account or Log in to Continue</h1>
 
 <div class="mt-4">
-  <p class="mb-4">Coming soon: sign in with your Google account, recommend KPIs, post comments, and more.</p>
+  <p class="mb-4">Sign in to recommend KPIs and help surface what's most useful.</p>
+  <p class="mb-4">Coming soon: discuss with peers, create custom collections, and more.</p>
+  <p class="mb-4">Using this website will always be free.</p>
+  <p class="mb-4">
+    <%= link_to("/auth/google_oauth2", class: "google-signin-btn block w-52 h-12", data: { testid: "google-signin-btn" }) do %>
+      <%= image_tag("google-normal.png", alt: "Sign in with Google", class: "w-full h-full") %>
+    <% end %>
+  </p>
 </div>

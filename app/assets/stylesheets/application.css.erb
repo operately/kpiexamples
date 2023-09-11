@@ -14,10 +14,10 @@
  *= require_self
  */
 
-.google-signin-btn:hover img {
-  content: url(<%= asset_path('google-focused.png') %>);
+.google-signin-btn {
+  transition: transform 0.3s ease;
 }
 
-.google-signin-btn:active img {
-  content: url(<%= asset_path('google-pressed.png') %>);
+.google-signin-btn:hover, .google-signin-btn:active {
+  transform: scale(0.95);
 }
