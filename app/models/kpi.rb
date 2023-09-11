@@ -2,6 +2,9 @@ class Kpi < ApplicationRecord
   belongs_to :subcategory
   belongs_to :category
 
+  has_many :kpi_upvotes
+  has_many :upvoters, through: :upvotes, source: :user
+
   VALID_UNITS = ['money', 'percentage', 'time', 'number', 'score', 'ratio', 'list'].freeze
 
   validates :unit, inclusion: { in: VALID_UNITS, message: "%{value} is not a valid unit" }

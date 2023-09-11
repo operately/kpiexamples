@@ -23,4 +23,9 @@ module KpisHelper
       emoji_for_unit(unit_type)
     end
   end
+
+  def kpi_upvote_count(kpi)
+    count = kpi.kpi_upvotes.count
+    count > 0 ? content_tag(:span, count, class: "ml-2") : ""
+  end
 end

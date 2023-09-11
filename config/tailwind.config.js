@@ -15,6 +15,12 @@ module.exports = {
         'operately-blue-tint-1': '#E3F2FF',
         'operately-blue-tint-2': '#98C9FF',
       },
+      borderColor: {
+        'operately-blue': '#3185FF',
+        'operately-dark-blue': '#024FAC',
+        'operately-blue-tint-1': '#E3F2FF',
+        'operately-blue-tint-2': '#98C9FF',
+      },
       fontFamily: {
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
       },

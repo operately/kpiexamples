@@ -70,3 +70,35 @@ Shoulda::Matchers.configure do |config|
     with.library :rails
   end
 end
+
+OmniAuth.config.test_mode = true
+OmniAuth.config.silence_get_warning = true
+
+OmniAuth.config.mock_auth[:google_oauth2] = OmniAuth::AuthHash.new({
+  provider: 'google_oauth2',
+  uid: '12345678910',
+  info: {
+    email: 'test@example.com',
+    first_name: 'Test',
+    last_name: 'User',
+    image: 'https://test_image_url.com'
+  },
+  credentials: {
+    token: 'abcdefg12345',
+    refresh_token: '12345abcdefg',
+    expires_at: DateTime.now,
+  }
+})
+
+require 'capybara/rails'
+require 'capybara/rspec'
+require 'selenium-webdriver'
+
+Capybara.register_driver :selenium do |app|
+  Capybara::Selenium::Driver.new(app, browser: :firefox)
+end
+
+Capybara.server = :puma
+
+Capybara.javascript_driver = :selenium
+Capybara.default_max_wait_time = 4

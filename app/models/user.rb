@@ -4,6 +4,9 @@ class User < ApplicationRecord
   validates :provider, presence: true
   validates :uid, presence: true
 
+  has_many :kpi_upvotes
+  has_many :upvoted_kpis, through: :kpi_upvotes, source: :kpi
+
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_initialize.tap do |user|
       user.provider = auth.provider
