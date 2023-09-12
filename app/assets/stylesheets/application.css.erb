@@ -14,6 +14,23 @@
  *= require_self
  */
 
+:root {
+  --left-app-margin: 180px;
+}
+
+@media only screen and (max-width: 900px) {
+  .app-left-margin {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  .app-left-margin {
+    margin-left: var(--left-app-margin);
+  }
+}
+
 .google-signin-btn {
   transition: transform 0.3s ease;
 }
