@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   namespace :admin do
     resources :notifications, only: [:index]
+    resources :users, only: [:index, :show]
     root to: 'dashboard#index'
   end
 

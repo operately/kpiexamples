@@ -1,0 +1,7 @@
+<h1 class="text-2xl font-semibold mb-6">
+  <%= link_to("Admin", admin_root_path, class: "text-operately-blue hover:text-operately-dark-blue underline") %> /
+  <%= link_to("Users", admin_users_path, class: "text-operately-blue hover:text-operately-dark-blue underline") %> /
+  <%= @user.email %>
+</h1>
+
+<%= render "admin/users/show/upvoted_kpis" if @kpi_upvotes.any? -%>
