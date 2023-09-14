@@ -37,7 +37,7 @@
 <p class="text-lg text-gray-500"><%= @kpi.unit.capitalize %></p>
 
 <div class="text-gray-800">
-  <p class=""><%= @kpi.description %></p>
+  <p class=""><%= simple_format(@kpi.description, class: "mb-4") %></p>
 
   <% if @kpi.formula.present? -%>
     <div class="mt-3">
