@@ -4,7 +4,10 @@ class CategoriesController < ApplicationController
     @subcategories = @category.subcategories.order("name ASC")
     @total_count = @category.kpis.count
 
-    @kpis = @category.kpis.order("name ASC").page(params[:page]).per(20)
+    @kpis = @category.kpis.order("name ASC") #.page(params[:page]).per(20)
+    @popular_kpis = @category.kpis.order("upvote_count DESC").limit(5)
+
+    @render_rich_page = File.exist?("app/views/categories/show/bodies/_#{@category.slug}.html.erb")
 
     if @total_count == 0
       @notification = Notification.new

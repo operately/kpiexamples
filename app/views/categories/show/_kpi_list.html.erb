@@ -1,0 +1,8 @@
+<ul class="list-decimal list-inside mt-4 mb-4">
+  <% @kpis.each do |kpi| -%>
+    <li class="mt-4 mb-4">
+      <%= link_to(kpi.name, category_kpi_path(kpi.category, kpi), class: "text-operately-blue hover:text-operately-dark-blue underline") %>:
+      <span class="text-gray-700 mt-2"><%= substring_until_period(kpi.description) %></span>
+    </li>
+<% end -%>
+</ul>
