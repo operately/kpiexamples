@@ -15,29 +15,32 @@
 <% end -%>
 
 
-<h1 class="text-4xl font-bold mt-2"><%= @total_count if @total_count > 0 %> <%= @category.name %> KPIs</h1>
+<h1 class="text-4xl font-bold mt-2"><%= @total_count if @total_count > 0 %> <%= @category.name %> KPI Examples</h1>
 
 <div class="mt-4">
 
   <%= render "categories/show/notification" if @total_count == 0 %>
 
-  <div class="grid grid-cols-2 md:grid-cols-4 gap-1 mt-4 mb-4">
+  <div class="grid grid-cols-2 md:grid-cols-4 gap-1 mt-4 mb-8">
     <% @subcategories.try(:each) do |sub| -%>
-      <div class="bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 ease-in-out flex items-center justify-center">
+      <div class="bg-white p-4 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 ease-in-out flex items-center justify-center text-operately-blue hover:text-operately-dark-blue">
         <%= link_to(sub.name, category_subcategory_path(@category, sub), class: "rounded-lg bg-cover bg-center font-bold text-sm") %>
       </div>
     <% end -%>
   </div>
 
-  <% if @kpis.present? -%>
-    <% @kpis.each do |kpi| -%>
-      <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 ease-in-out mb-4">
-        <%= link_to(kpi.name, category_kpi_path(kpi.category, kpi), class: "text-2xl font-bold text-operately-blue hover:text-operately-dark-blue underline") %>
-        <%= unit_emoji_tag(kpi.unit) %>
-        <p class="text-gray-700 mt-2"><%= substring_until_period(kpi.description) %></p>
-      </div>
+  <% if @render_rich_page %>
+    <%= render "categories/show/bodies/#{@category.slug}" %>
+  <% else %>
+    <% if @kpis.present? -%>
+      <% @kpis.each do |kpi| -%>
+        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 ease-in-out mb-4">
+          <%= link_to(kpi.name, category_kpi_path(kpi.category, kpi), class: "text-2xl font-bold text-operately-blue hover:text-operately-dark-blue underline") %>
+          <%= unit_emoji_tag(kpi.unit) %>
+          <p class="text-gray-700 mt-2"><%= substring_until_period(kpi.description) %></p>
+        </div>
+      <% end -%>
     <% end -%>
+  <% end %>
 
-    <%= paginate @kpis %>
-  <% end -%>
 </div>
