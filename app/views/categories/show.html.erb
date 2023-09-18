@@ -15,7 +15,7 @@
 <% end -%>
 
 
-<h1 class="text-4xl font-bold mt-2"><%= @total_count if @total_count > 0 %> <%= @category.name %> KPI Examples</h1>
+<h1 class="text-4xl font-bold mt-2"><%= to_nearest_five_or_zero(@total_count) if @total_count > 0 %> <%= @category.name %> KPI Examples</h1>
 
 <div class="mt-4">
 
