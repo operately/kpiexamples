@@ -49,7 +49,7 @@
   <% if @kpi.example.present? -%>
     <div class="mt-3">
       <h2 class="text-xl font-semibold mt-4 mb-1">Example</h2>
-      <p><%= @kpi.example %></p>
+      <p><%= simple_format(@kpi.example, class: "mb-4") %></p>
     </div>
   <% end -%>
 
