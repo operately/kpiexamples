@@ -1,9 +1,9 @@
-<% title = "#{@total_count if @total_count > 0} #{@category.name} KPI Examples" -%>
+<% title = "#{to_nearest_five_or_zero(@total_count) if @total_count > 0} #{@category.name} KPI Examples" -%>
 <% set_page_title(title, full: true) -%>
 
 <% if @total_count > 0 -%>
   <% content_for :head do -%>
-    <%= meta_description("Explore a comprehensive list of #{@total_count} #{@category.name} KPIs to measure and improve your performance. Find detailed definitions, formulas, and examples of key #{@category.name} performance indicators to guide your decision-making process.") %>
+    <%= meta_description("Explore a comprehensive list of #{to_nearest_five_or_zero(@total_count)} #{@category.name} KPIs to measure and improve your performance. Find detailed definitions, formulas, and examples of key #{@category.name} performance indicators to guide your decision-making process.") %>
 
     <meta name="twitter:card" content="summary">
     <meta name="twitter:site" content="@operately">
