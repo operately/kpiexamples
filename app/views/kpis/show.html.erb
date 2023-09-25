@@ -1,80 +1,14 @@
-<% title = "#{@kpi.name} - #{@kpi.category.name} KPI Examples" -%>
-<% set_page_title(title, full: true) -%>
+<%= render("kpis/show/head") %>
 
-<% content_for :head do -%>
-  <%= meta_description(substring_until_period(@kpi.description)) -%>
-
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:site" content="@operately">
-  <meta name="twitter:title" content="<%= title %>">
-  <meta name="og:description" content="<%= substring_until_period(@kpi.description) %>">
-  <meta name="twitter:image" content="<%= image_url("summary-card.jpg") %>">
-  <meta name="og:image" content="<%= image_url("summary-card.jpg") %>">
-<% end -%>
-
-<div class="flex flex-row items-center space-x-2">
-  <ol itemscope itemtype="https://schema.org/BreadcrumbList" class="flex flex-wrap">
-    <li itemprop="itemListElement" itemscope
-        itemtype="https://schema.org/ListItem" class="mr-2">
-      <%= link_to(category_url(@kpi.category), class: "text-operately-blue hover:text-operately-dark-blue underline", itemprop: "item") do %>
-        <span itemprop="name"><%= @kpi.category.name %></span></a>
-    <% end %>
-    <meta itemprop="position" content="1" />
-    </li>
-    ›
-    <li itemprop="itemListElement" itemscope
-        itemtype="https://schema.org/ListItem" class="ml-2">
-      <%= link_to(category_subcategory_url(@kpi.category, @kpi.subcategory), class: "text-operately-blue hover:text-operately-dark-blue underline", itemprop: "item") do %>
-        <span itemprop="name"><%= @kpi.subcategory.name %></span></a>
-    <% end %>
-    <meta itemprop="position" content="2" />
-    </li>
-  </ol>
-</div>
+<%= render("kpis/show/breadcrumbs") %>
 
 <h1 class="text-4xl font-bold mt-2"><%= @kpi.name %></h1>
 
 <p class="text-lg text-gray-500"><%= @kpi.unit.capitalize %></p>
 
 <div class="text-gray-800">
-  <p class=""><%= simple_format(@kpi.description, class: "mb-4") %></p>
-
-  <% if @kpi.formula.present? -%>
-    <div class="mt-3">
-      <h2 class="text-xl font-semibold mt-4 mb-1">Formula</h2>
-      <p class="font-mono"><%= @kpi.formula %></p>
-    </div>
-  <% end -%>
-
-  <% if @kpi.example.present? -%>
-    <div class="mt-3">
-      <h2 class="text-xl font-semibold mt-4 mb-1">Example</h2>
-      <p><%= simple_format(@kpi.example, class: "mb-4") %></p>
-    </div>
-  <% end -%>
-
-
-  <% if logged_in? %>
-    <%= turbo_frame_tag(dom_id(@kpi, :votes)) do %>
-      <%= render "kpis/votes" %>
-    <% end -%>
-  <% else -%>
-    <div class="mt-4 text-base">
-      <%= link_to(sign_in_path(return_path: request.fullpath),
-                  class: "bg-operately-blue text-white px-4 py-2 rounded hover:bg-operately-dark-blue transition duration-300") do %>
-        <span>👍 Upvote</span>
-        <%= kpi_upvote_count(@kpi) %>
-      <% end %>
-    </div>
-  <% end -%>
-
-  <div class="mt-9 text-base">
-    <hr/>
-    <h3 class="mt-3 text-lg underline decoration-dotted">Other KPIs in <%= @kpi.subcategory.name %></h3>
-    <ul class="list-disc list-inside mt-2 mb-2">
-      <% @other_kpis.each do |kpi| -%>
-        <li class="mb-2"><%= link_to(kpi.name, category_kpi_path(kpi.category, kpi), class: "text-operately-blue hover:text-operately-dark-blue underline") %></li>
-      <% end -%>
-    </ul>
-  </div>
+  <%= render(partial: "kpis/show/summary") %>
+  <%= render(partial: "kpis/show/votes") %>
+  <%= render(partial: "kpis/show/comments", locals: { kpi: @kpi }) %>
+  <%= render(partial: "kpis/show/other_kpis") %>
 </div>

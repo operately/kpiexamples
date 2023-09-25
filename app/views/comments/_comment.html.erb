@@ -1,0 +1,50 @@
+<%= content_tag(:div, id: dom_id(comment), class: "mt-6 mb-6", data: { comment_id: comment.id }) do %>
+  <div class="border-l-2 pl-3">
+    <div>
+      <div class="flex items-center flex-no-wrap">
+        <%= image_tag(comment.user.avatar_url, alt: "#{comment.user.name} avatar", class: "h-8 w-8 rounded-full mr-2") %>
+        <span class="font-bold mr-2"><%= comment.user.name %></span>
+
+        <span class="text-sm">
+          · <%= time_ago_in_words(comment.created_at) %> ago
+          <% if comment.was_updated? -%>
+            · edited <%= time_ago_in_words(comment.updated_at) %> ago
+          <% end -%>
+        </span>
+      </div>
+    </div>
+
+    <div class="ml-2"><%= comment_apply_style(comment.content) %></div>
+
+    <% if logged_in? -%>
+      <% if comment.written_by?(current_user) -%>
+        <%= link_to("Edit", "#", data: { action: "click->comments#toggleEditCommentForm" }, class: "text-operately-blue hover:text-operately-dark-blue underline text-base") %>
+
+        <div id="edit_form_for_<%= dom_id(comment) %>" class="edit_form" style="display: none;">
+          <%= render(partial: "comments/form_edit",
+                     locals: { comment: comment },
+                     data: { comments_target: "editForm" }) %>
+        </div>
+      <% else -%>
+        <%= link_to("Reply", "#", data: { action: "click->comments#toggleReplyForm" }, class: "text-operately-blue hover:text-operately-dark-blue underline text-base") %>
+
+        <div id="reply_form_for_<%= dom_id(comment) %>" style="display: none;">
+          <%= render(partial: "comments/form",
+                     locals: { parent_id:        comment.id,
+                               commentable_id:   commentable_id,
+                               commentable_type: commentable_type },
+                     data: { comments_target: "replyForm" }) %>
+        </div>
+      <% end -%>
+    <% end -%>
+
+    <%= content_tag(:div, id: dom_id(comment, :replies)) do %>
+      <% comment.replies.each do |comment| %>
+        <%= render(partial: "comments/comment",
+                   locals: { comment: comment,
+                             commentable_id: commentable_id,
+                             commentable_type: commentable_type }) %>
+      <% end %>
+    <% end -%>
+  </div>
+<% end -%>

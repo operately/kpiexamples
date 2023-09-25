@@ -4,22 +4,6 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = [ "input", "results" ]
 
-  connect() {
-    document.addEventListener('keydown', this.setFocus.bind(this));
-  }
-
-  setFocus(event) {
-    if (event.key === '/') {
-      event.preventDefault(); // Prevent the default '/' key action.
-      this.inputTarget.focus(); // Focus on the search input.
-    }
-  }
-
-  disconnect() {
-    // Remove the event listener when the controller is disconnected.
-    document.removeEventListener('keydown', this.setFocus.bind(this));
-  }
-
   perform(event) {
     const url = `/search?autocomplete=true&query=${this.inputTarget.value}`
 

@@ -1,0 +1,13 @@
+<% if logged_in? %>
+  <%= turbo_frame_tag(dom_id(@kpi, :votes)) do %>
+    <%= render "kpis/votes" %>
+  <% end -%>
+<% else -%>
+  <div class="mt-4 text-base">
+    <%= link_to(sign_in_path(return_path: request.fullpath),
+                class: "bg-operately-blue text-white px-4 py-2 rounded hover:bg-operately-dark-blue transition duration-300") do %>
+      <span>👍 Upvote</span>
+      <%= kpi_upvote_count(@kpi) %>
+    <% end %>
+  </div>
+<% end -%>

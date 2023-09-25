@@ -1,0 +1,27 @@
+<%= form_with(model: comment,
+              local: true,
+              data: { turbo_frame: "comments",
+                      action: "ajax:success->comments#hideEditForm submit->comments#checkSubmission" }) do |f| %>
+
+  <%= f.hidden_field :parent_id, value: comment.parent_id %>
+  <%= f.hidden_field :commentable_id, value: comment.commentable_id %>
+  <%= f.hidden_field :commentable_type, value: comment.commentable_type %>
+  <%= hidden_field_tag :return_path, request.fullpath %>
+
+  <%= f.text_area :content, id: "comment_editor_#{comment.id}", rows: 3, class: "tinymce w-full p-2 rounded border" %>
+  <%= tinymce(menubar: false,
+              statusbar: false,
+              height: 220,
+              default_link_target: '_blank',
+              link_assume_external_targets: "https") %>
+
+  <div class="mt-2">
+    <%= f.submit "Update Comment", class: "bg-operately-blue text-white px-4 py-2 rounded hover:bg-operately-dark-blue transition duration-300" %>
+
+    <span class="ml-2">
+      or <%= link_to("cancel", "#",
+                     class: "text-operately-blue hover:text-operately-dark-blue underline",
+                     data: { action: "click->comments#hideEditForm" }) %>
+    </span>
+  </div>
+<% end %>

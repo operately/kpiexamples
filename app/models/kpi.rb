@@ -5,6 +5,8 @@ class Kpi < ApplicationRecord
   has_many :kpi_upvotes
   has_many :upvoters, through: :upvotes, source: :user
 
+  has_many :comments, as: :commentable, dependent: :destroy
+
   VALID_UNITS = ['money', 'percentage', 'time', 'number', 'score', 'ratio', 'list'].freeze
 
   validates :unit, inclusion: { in: VALID_UNITS, message: "%{value} is not a valid unit" }
