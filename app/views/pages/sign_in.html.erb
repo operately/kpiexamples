@@ -1,5 +1,9 @@
 <% set_page_title("Sign In") -%>
 
+<% content_for :head do -%>
+  <link rel="canonical" href="<%= sign_in_url %>" />
+<% end -%>
+
 <h1 class="text-4xl font-bold mt-2">Create Free Account or Log in to Continue</h1>
 
 <div class="mt-4">
