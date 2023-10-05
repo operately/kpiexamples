@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   get '/contribute', to: 'pages#contribute'
   get '/search', to: 'kpis#search'
   get '/sign_in', to: 'pages#sign_in'
+  get '/code-of-conduct', to: 'pages#code_of_conduct'
+
   get '/sitemap', to: 'pages#sitemap', defaults: { format: 'xml' }
 
   get '/auth/:provider/callback', to: 'sessions#create'

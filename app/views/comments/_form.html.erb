@@ -17,5 +17,9 @@
 
   <div class="mt-2">
     <%= f.submit "Post Comment", class: "bg-operately-blue text-white px-4 py-2 rounded hover:bg-operately-dark-blue transition duration-300" %>
+
+    <span class="text-sm ml-4">
+      Be kind and considerate.  Review our <%= link_to("Code of Conduct", code_of_conduct_path, class: "text-operately-blue hover:text-operately-dark-blue underline") %> before commenting.
+    </span>
   </div>
 <% end %>
