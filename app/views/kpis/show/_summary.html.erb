@@ -1,0 +1,15 @@
+<p class=""><%= simple_format(@kpi.description, class: "mb-4") %></p>
+
+<% if @kpi.formula.present? -%>
+  <div class="mt-3">
+    <h2 class="text-xl font-semibold mt-4 mb-1">Formula</h2>
+    <p class="font-mono"><%= @kpi.formula %></p>
+  </div>
+<% end -%>
+
+<% if @kpi.example.present? -%>
+  <div class="mt-3">
+    <h2 class="text-xl font-semibold mt-4 mb-1">Example</h2>
+    <p><%= simple_format(@kpi.example, class: "mb-4") %></p>
+  </div>
+<% end -%>

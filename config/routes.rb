@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   get '/contribute', to: 'pages#contribute'
   get '/search', to: 'kpis#search'
   get '/sign_in', to: 'pages#sign_in'
+  get '/code-of-conduct', to: 'pages#code_of_conduct'
+
   get '/sitemap', to: 'pages#sitemap', defaults: { format: 'xml' }
 
   get '/auth/:provider/callback', to: 'sessions#create'
@@ -14,6 +16,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :notifications, only: [:index]
     resources :users, only: [:index, :show]
+    resources :comments, only: [:index, :show, :destroy]
     root to: 'dashboard#index'
   end
 
@@ -27,6 +30,8 @@ Rails.application.routes.draw do
       end
     end
   end
+
+  resources :comments, only: [:create, :update, :destroy]
 
   resources :notifications, only: [:create]
 

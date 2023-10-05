@@ -1,0 +1,29 @@
+<div class="mt-5" data-controller="comments">
+  <h2 class="text-xl font-semibold mt-8 mb-3">Comments</h2>
+
+  <%= turbo_frame_tag "comments" do %>
+    <% kpi.comments.top_level.each do |comment| %>
+      <%= render(partial: "comments/comment",
+                 locals: { comment: comment,
+                           commentable_id: kpi.id,
+                           commentable_type: kpi.class.name }) %>
+    <% end %>
+  <% end -%>
+
+  <% if logged_in? -%>
+    <div id="new_comment_form">
+      <h3 class="text-lg font-semibold mt-5 mb-2">Leave a Comment</h3>
+
+      <%= render(partial: "comments/form",
+                 locals: { parent_id:        nil,
+                           commentable_id:   kpi.id,
+                           commentable_type: kpi.class.name }) %>
+    </div>
+  <% else -%>
+    <div>
+      <%= link_to("Sign in to leave a comment",
+                  sign_in_path(return_path: request.fullpath),
+                  class: "text-operately-blue hover:text-operately-dark-blue underline") %>
+    </div>
+  <% end -%>
+</div>

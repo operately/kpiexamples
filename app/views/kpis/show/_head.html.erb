@@ -1,0 +1,15 @@
+<% title = "#{@kpi.name} - #{@kpi.category.name} KPI Examples" -%>
+<% set_page_title(title, full: true) -%>
+
+<% content_for :head do -%>
+  <%= meta_description(substring_until_period(@kpi.description)) -%>
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@operately">
+  <meta name="twitter:title" content="<%= title %>">
+  <meta name="og:description" content="<%= substring_until_period(@kpi.description) %>">
+  <meta name="twitter:image" content="<%= image_url("summary-card.jpg") %>">
+  <meta name="og:image" content="<%= image_url("summary-card.jpg") %>">
+
+  <%= tinymce_assets %>
+<% end -%>

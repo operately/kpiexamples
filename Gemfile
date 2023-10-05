@@ -55,6 +55,7 @@ gem "kaminari"
 gem "omniauth"
 gem "omniauth-google-oauth2"
 gem "pg_search"
+gem "tinymce-rails"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

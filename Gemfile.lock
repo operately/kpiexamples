@@ -392,6 +392,8 @@ GEM
     thor (1.2.2)
     tilt (2.2.0)
     timeout (0.4.0)
+    tinymce-rails (6.7.0)
+      railties (>= 3.1.1)
     trailblazer-option (0.1.2)
     turbo-rails (1.4.0)
       actionpack (>= 6.0.0)
@@ -450,6 +452,7 @@ DEPENDENCIES
   sprockets-rails
   stimulus-rails
   tailwindcss-rails
+  tinymce-rails
   turbo-rails
   web-console
 
