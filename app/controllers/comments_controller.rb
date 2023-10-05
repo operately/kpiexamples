@@ -83,7 +83,10 @@ class CommentsController < ApplicationController
   private
   
   def find_commentable
-    params[:comment][:commentable_type].constantize.find(params[:comment][:commentable_id])
+    type = params[:comment][:commentable_type]
+    if type == "Kpi" # or later something else
+      type.constantize.find(params[:comment][:commentable_id])
+    end
   end
 
   def find_parent_path
