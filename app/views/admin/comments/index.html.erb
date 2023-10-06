@@ -15,7 +15,7 @@
   <tbody class="bg-white divide-y divide-gray-200">
     <% @comments.each do |comment| %>
       <tr>
-        <td class="px-6 py-4 whitespace-nowrap"><%= truncate(comment.content) %></td>
+        <td class="px-6 py-4 whitespace-nowrap"><%= link_to(truncate(comment.content), [:admin, comment], class: "text-operately-blue hover:text-operately-dark-blue underline") %></td>
         <td class="px-6 py-4 whitespace-nowrap"><%= link_to(comment.user.name, [:admin, comment.user], class: "text-operately-blue hover:text-operately-dark-blue underline") %></td>
         <td class="px-6 py-4 whitespace-nowrap">
           <% if comment.commentable_type == "Kpi" -%>
