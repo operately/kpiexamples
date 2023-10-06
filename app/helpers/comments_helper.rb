@@ -1,7 +1,7 @@
 module CommentsHelper
 
   def comment_apply_style(content)
-    sanitized_content = sanitize(content, tags: %w(strong em a ul li ol), attributes: %w(href))
+    sanitized_content = sanitize(content, tags: %w(strong em a p ul li ol), attributes: %w(href))
 
     doc = Nokogiri::HTML.fragment(sanitized_content)
 
@@ -26,6 +26,11 @@ module CommentsHelper
     # Style list items
     doc.css('li').each do |li|
       li['class'] = 'mb-2'
+    end
+
+    # Style paragraphs
+    doc.css('p').each do |li|
+      li['class'] = 'mb-4'
     end
 
     doc.to_html.html_safe
