@@ -8,12 +8,7 @@
   <%= f.hidden_field :commentable_type, value: commentable_type %>
   <%= hidden_field_tag :return_path, request.fullpath %>
 
-  <%= f.text_area :content, rows: 3, placeholder: "Write your comment...", class: "tinymce w-full p-2 rounded border" %>
-  <%= tinymce(menubar: false,
-              statusbar: false,
-              height: 220,
-              default_link_target: '_blank',
-              link_assume_external_targets: "https") %>
+  <%= f.text_area(:content, rows: 3, placeholder: "Write your comment...", class: "tinymce w-full p-2 rounded border", data: { controller: "tinymce" }) %>
 
   <div class="mt-2">
     <%= f.submit "Post Comment", class: "bg-operately-blue text-white px-4 py-2 rounded hover:bg-operately-dark-blue transition duration-300" %>
