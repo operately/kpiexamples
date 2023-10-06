@@ -1,9 +1,15 @@
-<footer class="bg-white p-4 shadow mt-10 flex text-center">
-  <div class="container mx-auto">
-    <div class="text-sm flex flex-col md:flex-row justify-center text-center mt-3">
-      <a href="https://operately.com" class="text-gray-600 no-underline mx-3 sm:pb-4">Created by Operately</a> <span class="text-gray-300 md:block hidden">|</span>
-      <a href="/about" class="text-gray-600 no-underline mx-3 sm:pb-4">About</a>
-      <a href="https://github.com/operately/kpiexamples" target="_blank" rel="noopener noreferrer" class="text-gray-600 no-underline mx-3">Source code</a>
-    </div>
-  </div>
+<footer class="p-12 text-sm text-center bg-gray-100">
+  <p class="mb-4"><%= link_to("KPI Examples", root_path, class: link_classes) %> — An open source KPI library to find the right metrics for your work.</p>
+  <ul class="list-inline mx-auto mb-4">
+    <li class="inline"><%= link_to("Home", root_path, class: link_classes) %></li>
+    <li class="dot inline"></li>
+    <li class="inline"><%= link_to("About", about_path, class: link_classes) %></li>
+    <li class="dot inline"></li>
+    <li class="inline"><%= link_to("Contribute", contribute_path, class: link_classes) %></li>
+    <li class="dot inline"></li>
+    <li class="inline"><%= link_to("Code of Conduct", code_of_conduct_path, class: link_classes) %></li>
+    <li class="dot inline"></li>
+    <li class="inline"><%= link_to("Source Code", "https://github.com/operately/kpiexamples", rel: "external", class: link_classes) %></li>
+  </ul>
+  <p>Made with love by <%= link_to("Operately", "https://operately.com", rel: "me", class: link_classes) %>. KPI Examples © 2023.</p>
 </footer>

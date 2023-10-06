@@ -25,4 +25,8 @@ module ApplicationHelper
     initials = parts[1..-1].map { |name| "#{name[0]}." }.join
     "#{first_name} #{initials}"
   end
+
+  def link_classes
+    "text-operately-blue hover:text-operately-dark-blue underline"
+  end
 end
