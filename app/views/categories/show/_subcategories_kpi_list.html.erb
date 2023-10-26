@@ -1,0 +1,5 @@
+<% @subcategories.each do |subcategory| -%>
+  <h3 class="mt-8 mb-4 underline decoration-dotted"><%= subcategory.name %></h3>
+
+  <%= render("categories/show/kpi_list", subcategory: subcategory) %>
+<% end -%>

@@ -30,7 +30,7 @@
   </div>
 
   <% if @render_rich_page %>
-    <%= render "categories/show/bodies/#{@category.slug}" %>
+    <%= render("categories/show/bodies/#{@category.slug}") %>
   <% else %>
     <% if @kpis.present? -%>
       <% @kpis.each do |kpi| -%>

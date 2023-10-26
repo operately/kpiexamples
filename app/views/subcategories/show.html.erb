@@ -24,7 +24,11 @@
   </ol>
 </div>
 
-<h1 class="text-4xl font-bold mt-2"><%= to_nearest_five_or_zero(@total_count) %> <%= @subcategory.name %> KPIs</h1>
+<h1 class="text-4xl font-bold mt-2 mb-4"><%= to_nearest_five_or_zero(@total_count) %> <%= @subcategory.name %> KPIs</h1>
+
+<div>
+  <%= render_subcategory_body(@category.slug, @subcategory.slug) %>
+</div>
 
 <div class="mt-4">
   <% @kpis.each do |kpi| -%>

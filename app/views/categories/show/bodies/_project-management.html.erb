@@ -1,0 +1,42 @@
+<p class="mb-4">
+  In the complex and dynamic field of project management, understanding and monitoring the right Key Performance Indicators (KPIs) is crucial for success. KPIs in project management help managers gauge the efficiency, performance, and progress of their projects, offering actionable insights for decision-making and strategy optimization.
+</p>
+
+<%= image_tag("#{@category.slug}.jpg", alt: "#{@category.name} illustration", class: "w-full h-auto mb-4") %>
+
+<h2 class="text-2xl font-semibold mt-8 mb-2">What are Project Management KPIs?</h2>
+
+<p class="mb-4">
+  Project Management KPIs are quantifiable measures used to evaluate the effectiveness and success of a project. They provide a data-driven way to assess progress, identify potential issues, and ensure that the project's goals align with the overall business objectives.
+</p>
+
+<h2 class="text-2xl font-semibold mt-8 mb-2">Why Projects Fail and How KPIs Can Help</h2>
+
+<p class="mb-4">
+  Projects often fail due to a lack of clear goals, improper resource allocation, or miscommunication. KPIs offer a tangible way to track and measure project performance against set benchmarks. By analyzing these metrics, project managers can anticipate problems, manage resources effectively, and make informed decisions to steer projects back on track.
+</p>
+
+<p class="mb-4">
+  An effective KPI should be relevant, quantifiable, and aligned with your project's goals. To avoid the common pitfall of tracking too many or irrelevant KPIs, focus on metrics that directly impact the project’s success. Ensure that your chosen KPIs are actionable, providing insights that can lead to meaningful changes or decisions.
+</p>
+
+<h2 class="text-2xl font-semibold mt-8 mb-2">Project Management KPIs By Segment</h2>
+
+<% @category.subcategories.order("name ASC").each do |subcategory| %>
+
+  <h3 class="font-semibold mt-8 mb-4"><%= subcategory.name %></h3>
+
+  <%= render_subcategory_body(@category.slug, subcategory.slug) %>
+
+  <%= render("categories/show/kpi_list", subcategory: subcategory) %>
+<% end -%>
+
+<h2 class="text-2xl font-semibold mt-8 mb-2">What's Next?</h2>
+<p class="mb-4">
+  At <a href="https://operately.com" class="text-operately-blue hover:text-operately-dark-blue underline">Operately</a>, we're building a new standard for running an effective organization.
+  <a href="https://blog.operately.com/" class="text-operately-blue hover:text-operately-dark-blue underline">Subscribe to our newsletter</a> to be the first to hear about the launch.
+</p>
+
+<p class="mb-4">
+  Looking to delve into other areas of your business? <a href="/" class="text-operately-blue hover:text-operately-dark-blue underline">Check out our extensive range of different categories</a> where you will find KPIs and let data drive your success.
+</p>
