@@ -10,9 +10,9 @@ module PagesHelper
 
   def render_subcategory_body(category_slug, subcategory_slug)
     if File.exist?("app/views/subcategories/show/#{category_slug}/_#{subcategory_slug}.html.erb")
-      render("subcategories/show/#{category_slug}/#{subcategory_slug}")
-    else
-      Rails.logger.info "file not found: app/views/subcategories/show/#{category_slug}/#{subcategory_slug}.html.erb"
+      content_tag(:p, class: "mb-4") do
+        render("subcategories/show/#{category_slug}/#{subcategory_slug}")
+      end
     end
   end
 end
