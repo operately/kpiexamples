@@ -1,0 +1,62 @@
+<p class="mb-4">
+Sales KPIs offer measurable values that effectively gauge the efficiency of sales efforts, illuminating the path from strategy to execution, and ultimately, to triumphant sales outcomes. By quantifying objectives, sales KPIs provide a clear vision of what is working and what isn’t, allowing teams to pivot and adapt with precision.
+</p>
+
+<%= image_tag("#{@category.slug}.jpg", alt: "#{@category.name} illustration", class: "w-full h-auto mb-4") %>
+
+<h2 class="text-2xl font-semibold mt-8 mb-2">An Overview of All Sales KPI Examples</h2>
+
+<% @category.subcategories.order("name ASC").each do |subcategory| %>
+
+  <h3 class="font-semibold mt-8 mb-4"><%= subcategory.name %></h3>
+
+  <%= render_subcategory_body(@category.slug, subcategory.slug) %>
+
+  <%= render("categories/show/kpi_list", subcategory: subcategory) %>
+<% end -%>
+
+<h2 class="text-2xl font-semibold mt-8 mb-2">5 Keys to Improving Your Sales KPIs</h2>
+
+<p class="mb-4">
+  If we’re being honest, sales can often become a numbers game focused on meeting quotas and chasing ever-increasing targets. But what truly matters is the understanding that behind every KPI, there’s a customer and a story. Let’s zero in on what’s genuinely important.
+</p>
+
+<h3 class="mt-8 mb-4 underline decoration-dotted">1. Understand Your Customer Profoundly</h3>
+
+<p class="mb-4">
+  It’s not just about knowing who your customers are but truly understanding what drives them. Your Sales KPIs will soar when you align your products with your customers’ narratives. Ask yourself: How does what we sell fit into our customers' lives? What problem are we solving for them? The deeper your insight into these questions, the more naturally your outcomes will improve because you're focusing on providing real value.
+</p>
+
+<h3 class="mt-8 mb-4 underline decoration-dotted">2. Embrace The Simplicity of Clear Goals</h3>
+
+<p class="mb-4">
+  Simplicity is key. The clearer and more understandable the goals, the easier it is for your team to remember them and align their daily work with these targets. Goals should be like lighthouses, guiding ships through the night—unwavering, clear, and always in sight.
+</p>
+
+<h3 class="mt-8 mb-4 underline decoration-dotted">3. Use Technology as an Enabler, Not a Solution</h3>
+
+<p class="mb-4">
+  Technology is often seen as a silver bullet, but it’s only as good as the clarity and simplicity of the systems it supports. Use technology not to pile on complexity, but to strip it away. Let it remove barriers, not build new ones. The right CRM isn't the one with the most features; it's the one that’s almost invisible in its use and empowers your team to do their best work.
+</p>
+
+<h3 class="mt-8 mb-4 underline decoration-dotted">4. Culture First, The Numbers Will Follow</h3>
+
+<p class="mb-4">
+  A positive, learning-focused culture trumps chasing KPIs any day. When your team feels accountable not just to numbers but to each other, to the company, and to the customer, they’re more invested. This isn’t soft—it’s strategic. A team that cares is a team that performs.
+</p>
+
+<h3 class="mt-8 mb-4 underline decoration-dotted">5. Always Be Ready To Adapt</h3>
+
+<p class="mb-4">
+  The only constant in business is change. Sales strategies and KPIs set in stone are relics. Instead, build adaptability into your core values. Let it be known that while goals are important, the flexibility to adjust to the market and customer needs is equally so. This isn’t a lack of direction, but an embrace of responsiveness.
+</p>
+
+<h2 class="text-2xl font-semibold mt-8 mb-2">What's Next?</h2>
+<p class="mb-4">
+  At <a href="https://operately.com" class="text-operately-blue hover:text-operately-dark-blue underline">Operately</a>, we're building a new standard for running an effective organization.
+  <a href="https://blog.operately.com/" class="text-operately-blue hover:text-operately-dark-blue underline">Subscribe to our newsletter</a> to be the first to hear about the launch.
+</p>
+
+<p class="mb-4">
+  Looking to delve into other areas of your business? <a href="/" class="text-operately-blue hover:text-operately-dark-blue underline">Check out our extensive range of different categories</a> where you will find KPIs and let data drive your success.
+</p>
