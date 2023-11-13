@@ -93,3 +93,8 @@ group :development do
   gem "solargraph"
   gem "solargraph-rails"
 end
+
+group :production do
+  gem "sentry-ruby"
+  gem "sentry-rails"
+end
