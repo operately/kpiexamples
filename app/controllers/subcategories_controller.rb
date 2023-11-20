@@ -4,6 +4,6 @@ class SubcategoriesController < ApplicationController
     @subcategory = @category.subcategories.friendly.find(params[:id])
     @total_count = @subcategory.kpis.count
 
-    @kpis = @subcategory.kpis.order("name ASC").page(params[:page]).per(20)
+    @kpis = @subcategory.kpis.includes(:category).order("name ASC").page(params[:page]).per(20)
   end
 end

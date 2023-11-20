@@ -4,7 +4,7 @@ class KpisController < ApplicationController
   before_action :require_login, only: [:upvote, :downvote]
 
   def show
-    @other_kpis = @kpi.subcategory.kpis.where("id != ?", @kpi.id).order("RANDOM()").limit(5)
+    @other_kpis = @kpi.subcategory.kpis.where("id != ?", @kpi.id).order("RANDOM()").includes(:category).limit(5)
   end
 
   def search

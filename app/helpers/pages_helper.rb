@@ -4,7 +4,7 @@ module PagesHelper
     if Rails.env.test?
       asset_url("marketing.jpg")
     else
-      category.kpis.any? ? asset_url("#{category.slug}.jpg") : asset_url("#{category.slug}-bw.jpg")
+      category.pending? ? asset_url("#{category.slug}-bw.jpg") : asset_url("#{category.slug}.jpg")
     end
   end
 

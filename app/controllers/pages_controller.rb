@@ -7,7 +7,7 @@ class PagesController < ApplicationController
     @host = request.protocol + request.host_with_port
 
     @categories = Category.all.order("name ASC")
-    @kpis = Kpi.all.order("name ASC")
+    @kpis = Kpi.all.order("name ASC").includes(:category)
 
     respond_to do |format|
       format.xml
