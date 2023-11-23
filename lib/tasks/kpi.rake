@@ -1,7 +1,8 @@
 namespace :kpi do
-  desc "Sync KPIs with Google Sheet"
+  desc "Sync categories and KPIs with Google Sheet"
   task sync: :environment do
     Rails.logger = Logger.new(STDOUT)
+    Category.sync_with_google_sheet
     Kpi.sync_with_google_sheet
   end
 
