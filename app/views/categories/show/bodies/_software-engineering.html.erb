@@ -1,0 +1,26 @@
+<p class="mb-4">
+TODO
+</p>
+
+<%= image_tag("#{@category.slug}.jpg", alt: "#{@category.name} illustration", class: "w-full h-auto mb-4") %>
+
+<h2 class="text-2xl font-semibold mt-8 mb-2">An Overview of All Software Engineering KPI Examples</h2>
+
+<% @category.subcategories.order("name ASC").each do |subcategory| %>
+
+  <h3 class="font-semibold mt-8 mb-4"><%= subcategory.name %></h3>
+
+  <%= render_subcategory_body(@category.slug, subcategory.slug) %>
+
+  <%= render("categories/show/kpi_list", subcategory: subcategory) %>
+<% end -%>
+
+<h2 class="text-2xl font-semibold mt-8 mb-2">What's Next?</h2>
+<p class="mb-4">
+  At <a href="https://operately.com" class="text-operately-blue hover:text-operately-dark-blue underline">Operately</a>, we're building a new standard for running an effective organization.
+  <a href="https://blog.operately.com/" class="text-operately-blue hover:text-operately-dark-blue underline">Subscribe to our newsletter</a> to be the first to hear about the launch.
+</p>
+
+<p class="mb-4">
+  Looking to delve into other areas of your business? <a href="/" class="text-operately-blue hover:text-operately-dark-blue underline">Check out our extensive range of different categories</a> where you will find KPIs and let data drive your success.
+</p>
