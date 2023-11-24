@@ -1,0 +1,60 @@
+<p class="mb-4">
+The role of a CTO encompasses not just technological prowess but also a deep understanding of how to steer the engineering ship. Metrics and KPIs serve as the compass and map in this journey. What you measure is what you get — so let's dive into how you, as an engineering leader, can master this art. Or jump straight to the overview of <a href="#overview" class="text-operately-blue hover:text-operately-dark-blue underline">all software engineering KPI examples</a>.
+</p>
+
+<%= image_tag("#{@category.slug}.jpg", alt: "#{@category.name} illustration", class: "w-full h-auto mb-4") %>
+
+<h2 class="text-2xl font-semibold mt-8 mb-2">The Art of Measurement in Engineering</h2>
+
+<h3 class="font-semibold mt-8 mb-4">Aligning with Business Goals: The North Star</h3>
+
+<p class="mb-4">Start by understanding that metrics are not just numbers; they're narratives. They should tell the story of how your engineering efforts are contributing to the company's larger saga. Whether you're at a scrappy startup, where agility and innovation are paramount, or at a behemoth where reliability and scalability take the lead, your metrics should mirror these themes. It's like choosing the right programming language for the job - there's no one-size-fits-all.</p>
+
+<h3 class="font-semibold mt-8 mb-4">Choosing Meaningful Metrics: The Quality Quest</h3>
+
+<p class="mb-4">In the early days, startups often go overboard with metrics. But wisdom lies in selection. Focus on metrics that genuinely reflect progress and quality. For instance, deployment frequency might be your go-to metric for assessing agility, while system reliability could be the yardstick for stability. It's akin to writing clean, efficient code versus a tangled web of complexity.</p>
+
+<h3 class="font-semibold mt-8 mb-4">Cultivating Continuous Improvement: The Growth Framework</h3>
+
+<p class="mb-4">Metrics should be the seeds from which growth sprouts, not hammers for cracking down on mistakes. Regular reviews of these metrics can be transformative, akin to the agile methodology's sprint retrospectives. They're opportunities to learn, adapt, and evolve. It's about creating an environment where the team is encouraged to ask, "How can we do better?"</p>
+
+<h3 class="font-semibold mt-8 mb-4">Balancing Act: Juggling Short-Term and Long-Term Goals</h3>
+
+<p class="mb-4">Think of your metrics as you would of managing technical debt. In the short term, you might prioritize features and quick releases, reflected in metrics like sprint velocity or feature completion rate. But, like avoiding accruing technical debt, long-term metrics focusing on code quality, system scalability, and reduction of bugs are equally crucial. It's a strategic balancing act.</p>
+
+<h3 class="font-semibold mt-8 mb-4">Team Involvement: The Collective Intelligence</h3>
+
+<p class="mb-4">Involve your engineering team in the process of defining these metrics. It's similar to how open-source projects thrive - through community involvement. Educating the team about the 'why' behind these metrics fosters a shared sense of purpose and direction. It turns metrics from being top-down mandates into collective goals.</p>
+
+<h3 class="font-semibold mt-8 mb-4">Customers: The Ultimate Yardstick</h3>
+
+<p class="mb-4">Remember, at the end of the day, it's all about the customer. Metrics that reflect user experience, like application performance or bug frequency, are crucial. They are the feedback loop from the market, telling you if you're building something people actually want. Incorporating customer feedback into your engineering roadmap keeps you aligned with market needs.</p>
+
+<h3 class="font-semibold mt-8 mb-4">Risk Management: The Safety Net</h3>
+
+<p class="mb-4">Proactive risk management is key. Metrics that help foresee and mitigate risks, like monitoring security vulnerabilities or system uptime, are like the safety nets under a trapeze artist. They ensure that when you take those daring leaps towards innovation, there's something to catch you in case of a fall.</p>
+
+<h3 class="font-semibold mt-8 mb-4">Your Role as a Leader: Charting the Course</h3>
+
+<p class="mb-4">Finally, as a CTO or engineering leader, your commitment to these metrics and KPIs sets the tone. Lead by example and align these metrics with your vision for the future. Your role is not just to manage the present but to chart the course for where the engineering team and the company are headed. It's about painting the big picture and ensuring every stroke, every metric, contributes to this masterpiece.</p>
+
+<h2 id="overview" class="text-2xl font-semibold mt-8 mb-2">All Software Engineering KPI Examples</h2>
+
+<% @category.subcategories.order("name ASC").each do |subcategory| %>
+
+  <h3 class="font-semibold mt-8 mb-4"><%= subcategory.name %></h3>
+
+  <%= render_subcategory_body(@category.slug, subcategory.slug) %>
+
+  <%= render("categories/show/kpi_list", subcategory: subcategory) %>
+<% end -%>
+
+<h2 class="text-2xl font-semibold mt-8 mb-2">What's Next?</h2>
+<p class="mb-4">
+  At <a href="https://operately.com" class="text-operately-blue hover:text-operately-dark-blue underline">Operately</a>, we're building a new standard for running an effective organization.
+  <a href="https://blog.operately.com/" class="text-operately-blue hover:text-operately-dark-blue underline">Subscribe to our newsletter</a> to be the first to hear about the launch.
+</p>
+
+<p class="mb-4">
+  Looking to delve into other areas of your business? <a href="/" class="text-operately-blue hover:text-operately-dark-blue underline">Check out our extensive range of different categories</a> where you will find KPIs and let data drive your success.
+</p>

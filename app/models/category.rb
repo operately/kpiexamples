@@ -20,7 +20,13 @@ class Category < ApplicationRecord
     categories = Category.all.to_a
 
     sheet.rows.each do |row|
+      Rails.logger.info "[Category sync] Processing #{row[0]}"
       category = Category.find_by(name: row[0])
+      if category.nil?
+        Rails.logger.info "[Category sync] Creating a new category: #{row[0]}"
+        category = Category.create!(name: row[0])
+      end
+
       category.summary = row[1]
 
       if category.changed?
