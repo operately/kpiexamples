@@ -1,0 +1,32 @@
+<p class="mb-4">Are you on the hunt for software product KPI examples to measure your product’s performance?</p>
+
+<p class="mb-4">As a product manager, you're aware that the cornerstone of a successful product strategy lies in making informed, data-driven decisions.</p>
+
+<p class="mb-4">The world of software products is rich with data collection opportunities, each offering valuable insights to steer your product towards greater success.</p>
+
+<p class="mb-4">Dive into our comprehensive list of product KPI examples below. Regardless of your product's nature, it's crucial to focus on <a href="software-product/s/user-engagement" class="text-operately-blue hover:text-operately-dark-blue underline">User Engagement</a> and <a href="/software-product/s/ux" class="text-operately-blue hover:text-operately-dark-blue underline">User Experience</a>.</p>
+
+<p class="mb-4">For a well-rounded analysis, integrate <a href="/finance" class="text-operately-blue hover:text-operately-dark-blue underline">Financial KPIs</a> and insights from <a href="/marketing" class="text-operately-blue hover:text-operately-dark-blue underline">Marketing</a>, <a href="/sales" class="text-operately-blue hover:text-operately-dark-blue underline">Sales</a>, and <a href="/customer-service" class="text-operately-blue hover:text-operately-dark-blue underline">Customer Service</a>. This approach ensures a comprehensive picture of your product's performance, guiding you to make strategic decisions that resonate with success.</p>
+
+<%= image_tag("#{@category.slug}.jpg", alt: "#{@category.name} illustration", class: "w-full h-auto mb-4") %>
+
+<h2 id="overview" class="text-2xl font-semibold mt-8 mb-2">All Software Product KPI Examples</h2>
+
+<% @category.subcategories.order("name ASC").each do |subcategory| %>
+
+  <h3 class="font-semibold mt-8 mb-4"><%= subcategory.name %></h3>
+
+  <%= render_subcategory_body(@category.slug, subcategory.slug) %>
+
+  <%= render("categories/show/kpi_list", subcategory: subcategory) %>
+<% end -%>
+
+<h2 class="text-2xl font-semibold mt-8 mb-2">What's Next?</h2>
+<p class="mb-4">
+  At <a href="https://operately.com" class="text-operately-blue hover:text-operately-dark-blue underline">Operately</a>, we're building a new standard for running an effective organization.
+  <a href="https://blog.operately.com/" class="text-operately-blue hover:text-operately-dark-blue underline">Subscribe to our newsletter</a> to be the first to hear about the launch.
+</p>
+
+<p class="mb-4">
+  Looking to delve into other areas of your business? <a href="/" class="text-operately-blue hover:text-operately-dark-blue underline">Check out our extensive range of different categories</a> where you will find KPIs and let data drive your success.
+</p>
