@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get '/search', to: 'kpis#search'
   get '/sign_in', to: 'pages#sign_in'
   get '/code-of-conduct', to: 'pages#code_of_conduct'
+  get '/faq', to: 'pages#faq'
 
   get '/sitemap', to: 'pages#sitemap', defaults: { format: 'xml' }
 

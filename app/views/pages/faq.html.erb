@@ -1,8 +1,22 @@
-<div id="longform" class="text-base mt-8">
-  <hr/>
+<% set_page_title("FAQ") -%>
+
+<% content_for :head do -%>
+  <%= meta_description("Learn about KPI Examples, an open-source project dedicated to providing a comprehensive database of business KPIs and metrics.") %>
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:site" content="@operately">
+  <meta name="twitter:title" content="About KPI Examples">
+  <meta name="og:description" content="<%= "Learn about KPI Examples, an open-source project dedicated to providing a comprehensive database of business KPIs and metrics." %>">
+  <meta name="twitter:image" content="<%= image_url("summary-card.jpg") %>">
+  <meta name="og:image" content="<%= image_url("summary-card.jpg") %>">
+<% end -%>
+
+<h1 class="text-3xl font-bold mt-2">Frequently Asked Questions About KPIs</h1>
+
+<div id="longform" class="text-base mt-8 mb-12">
 
   <div data-controller="toc" data-toc-root-value="#longform" class="toc" class="mt-4">
-    <p class="mt-8 mb-4 font-medium">Learn more about applying KPIs:</p>
+    <p class="mt-8 mb-4 font-medium">Contents:</p>
   </div>
 
   <h2 id="metricsvskpis" class="font-semibold text-xl mt-8">Understanding the Difference Between Metrics and KPIs</h2>
@@ -76,19 +90,8 @@
     <li class="pl-2"><span class="font-medium">Does it drive change?</span> A KPI should influence positive action.</li>
   </ul>
 
-  <h2 id="faq" class="font-semibold text-xl mt-12">FAQs on Key Performance Indicators</h2>
+  <h2 id="how-to-set-target" class="font-semibold text-xl mt-12">How to Set a Target for a New KPI</h2>
 
-  <h3 class="underline decoration-dotted font-semibold mt-4">What to do if you're unsure which metric will improve performance</h3>
-  <p class="mt-4">If you're starting from scratch, here's how to pinpoint the right metric:</p>
-  <ul class="list-disc list-inside mt-2 mb-2">
-    <li><span class="font-medium">Start with a goal</span>: Identify the big-picture outcome you want.</li>
-    <li><span class="font-medium">Team brainstorm</span>: Collaborate to find potential indicators.</li>
-    <li><span class="font-medium">Test metrics</span>: Track your choices and refine as needed.</li>
-    <li><span class="font-medium">Check industry standards</span>: Learn from others in your field.</li>
-    <li><span class="font-medium">Identify proactive measures</span>: Find metrics that can predict and influence outcomes.</li>
-  </ul>
-
-  <h3 class="underline decoration-dotted font-semibold mt-8">Defining "Good Enough" for a New KPI</h3>
   <p class="mt-4">Starting to track a new KPI? Here's how to set your benchmarks:</p>
   <ul class="list-disc list-inside mt-2 mb-2">
     <li><span class="font-medium">Research</span>: Look for industry standards tied to your KPI.</li>
@@ -97,7 +100,7 @@
     <li><span class="font-medium">Example</span>: If measuring customer satisfaction, start with your current feedback. Aim for steady improvements based on feedback and industry trends.</li>
   </ul>
 
-  <h3 class="underline decoration-dotted font-semibold mt-8">When Your Team Misses KPI Targets</h3>
+   <h2 id="missing-targets" class="font-semibold text-xl mt-12">What To Do When Your Team Misses KPI Targets</h2>
   <p class="mt-4">Your targets have not been met? Here's a game plan:</p>
   <ul class="list-disc list-inside mt-2 mb-2">
     <li><span class="font-medium">Review the target</span>: Ensure it still aligns with company goals.</li>
@@ -107,7 +110,7 @@
     <li><span class="font-medium">Evaluate team skills</span>: Check if your team has the necessary expertise.</li>
   </ul>
 
-  <h3 class="underline decoration-dotted font-semibold mt-8">How To Make KPIs Part of Your Culture</h3>
+  <h2 id="culture" class="font-semibold text-xl mt-12">How To Make KPIs Part of Your Culture</h2>
   <p class="mt-4">If your team is not accustomed to being metrics-driven, here's a way to bring about change:</p>
   <ul class="list-disc list-inside mt-2 mb-2">
     <li><span class="font-medium">Educate</span>: Ensure everyone knows the value of KPIs.</li>
